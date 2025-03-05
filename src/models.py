@@ -8,7 +8,7 @@ from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Float
 from sqlalchemy.orm import declarative_base, sessionmaker, relationship
 from sqlalchemy.sql import text
 from config import DB_CONFIG
-import pymysql
+# import pymysql
 
 # Database configuration
 DB_NAME = DB_CONFIG["database"]
