@@ -1,4 +1,9 @@
-import queries
+from queries import (
+    get_students_in_course,
+    get_courses_by_department,
+    get_top_students,
+    get_staff_by_department
+)
 
 def main():
     """
@@ -20,7 +25,7 @@ def main():
 
         if choice == "1":
             course_name = input("\n🔹 Enter course name: ")
-            students = queries.get_students_in_course(course_name)
+            students = get_students_in_course(course_name)
             print("\n****************************************")
             print(f"📌 Students enrolled in {course_name.upper()}:")
             print("****************************************")
@@ -33,7 +38,7 @@ def main():
 
         elif choice == "2":
             department_name = input("\n🔹 Enter department name: ")
-            courses = queries.get_courses_by_department(department_name)
+            courses = get_courses_by_department(department_name)
             print("\n****************************************")
             print(f"📌 Courses in {department_name.upper()}:")
             print("****************************************")
@@ -45,7 +50,7 @@ def main():
             print("****************************************")
 
         elif choice == "3":
-            students = queries.get_top_students()
+            students = get_top_students()
             print("\n****************************************")
             print("📌 Students with an average grade above 70%:")
             print("****************************************")
@@ -58,7 +63,7 @@ def main():
 
         elif choice == "4":
             department_name = input("\n🔹 Enter department name: ")
-            staff = queries.get_staff_by_department(department_name)
+            staff = get_staff_by_department(department_name)
             print("\n****************************************")
             print(f"📌 Staff members in {department_name.upper()}:")
             print("****************************************")

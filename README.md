@@ -5,8 +5,10 @@
 - [Installation](#installation)
 - [Execution and Usage](#execution-and-usage)
 - [Executing SQL File in MySQL Workbench](#executing-sql-file-in-mysql-workbench)
+- [Folder Structure](#folder-structure)
 - [Technologies Used](#technologies-used)
 - [Current Features](#current-features)
+- [Running Tests](#running-tests)
 - [Contributors](#contributors)
 - [License](#license)
 
@@ -20,66 +22,100 @@ The **University Record Management System** is a Python-based command-line appli
 - **Research Projects**
 - **Non-Academic Staff**
 
-The system enables users to retrieve university records through a user-friendly menu-based interface.
+The system enables users to retrieve university records through a **menu-based interface**.
+
+---
 
 ## Installation
-### Prerequisites
+### **Prerequisites**
 Ensure you have the following installed on your system:
 1. **Python 3.8 or higher** – Download and install from the [official Python website](https://www.python.org/downloads/).
 2. **MySQL Server** – Install from the [official MySQL website](https://dev.mysql.com/downloads/installer/).
 3. **MySQL Workbench** – Optional but recommended for executing SQL scripts and managing the database.
 
-### Installing Dependencies
+### **Installing Dependencies**
 Once Python is installed, install the required dependencies using:
 ```sh
 pip install -r requirements.txt
 ```
 
+---
+
 ## Execution and Usage
-### Clone the Repository
+### **Clone the Repository**
 ```sh
 git clone <repository_url>
-cd <repository_directory>
+cd university_db
 ```
 
-### Set Up the Database
+### **Set Up the Database**
 Before running the application, ensure the database schema is created and populated with initial data:
-1. **Run the database model script:**
+
+1. **Navigate to the `src/` directory and run the database model script:**
    ```sh
-   python models.py
+   python src/models.py
    ```
 2. **Execute the SQL data population script in MySQL Workbench** (see next section).
 
-### Run the Application
-Navigate to the project directory and run:
+### **Run the Application**
+Navigate to the project directory and execute:
 ```sh
-python ui.py
+python src/ui.py
 ```
 
-### Menu Options
+### **Menu Options**
 When the application starts, you will see the following menu:
 ```
-University Record Management System
-1. Find students in a course
-2. List courses in a department
-3. List students with an average grade above 70%
-4. Find staff in a department
-5. Exit
+************************************
+  🎓 University Record Management System
+************************************
+1. 🔍 Find students in a course
+2. 📚 List courses taught by lecturers in a department
+3. 🏆 List students with an average grade above 70%
+4. 👨‍🏫 Find staff members in a department
+5. 🚪 Exit
+************************************
 Enter your choice:
 ```
 Choose an option by entering the corresponding number.
 
+---
+
 ## Executing SQL File in MySQL Workbench
 To insert initial data into MySQL, follow these steps:
-1. Open **MySQL Workbench** and connect to your MySQL Server.
-2. Select the database `university_db` (or create it if it does not exist).
-3. Click **File > Open SQL Script** and select `populate_data.sql`.
-4. Click **Execute** to run the script.
-5. Verify the data using:
+1. **Open MySQL Workbench** and connect to your MySQL Server.
+2. **Select the database `university_db`** (or create it if it does not exist).
+3. **Click `File > Open SQL Script`** and select `populate_data.sql`.
+4. **Click `Execute`** to run the script.
+5. **Verify the data using:**
    ```sql
    SELECT * FROM students;
    SELECT * FROM courses;
    ```
+
+---
+
+## Folder Structure
+The project follows the **src/tests structure** for better organization:
+
+```
+university_db/
+│── src/                # Application source code
+│   ├── __init__.py     # Marks src as a package
+│   ├── config.py       # Database configuration
+│   ├── database.py     # Database connection functions
+│   ├── models.py       # ORM models and schema
+│   ├── queries.py      # Query functions for retrieving data
+│   ├── ui.py           # Command-line user interface
+│── tests/              # Unit tests
+│   ├── __init__.py     # Marks tests as a package
+│   ├── test_database.py # Unit test for database connection
+│── populate_data.sql   # SQL script to insert test data
+│── requirements.txt    # Dependencies for the project
+│── README.md           # Project documentation
+```
+
+---
 
 ## Technologies Used
 The project was built using:
@@ -87,6 +123,8 @@ The project was built using:
 - **MySQL** (Relational Database Management System)
 - **PyMySQL** (Python MySQL connector)
 - **SQLAlchemy** (ORM for database models)
+
+---
 
 ## Current Features
 The University Record Management System supports:
@@ -98,11 +136,26 @@ The University Record Management System supports:
 - **Research Projects:** View research projects supervised by lecturers.
 - **Non-Academic Staff Management:** Retrieve non-academic staff details.
 
+---
+
+## Running Tests
+The project includes **unit tests** to check database connectivity and table existence.
+
+### **Run Tests**
+To run the tests, execute:
+```sh
+python -m unittest tests/test_database.py
+```
+
+---
+
 ## Contributors
 - **Matthew Stevenson**
 - **Hugo Janse van Renburg**
 - **Auwal Muhammad Musa**
 - **Sung Shin**
+
+---
 
 ## License
 This project is licensed under the MIT License.

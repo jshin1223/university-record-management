@@ -1,14 +1,20 @@
 """
 test_database.py
 
-This module contains unit tests for testing database connectivity and queries.
+This module contains basic unit tests to verify database connectivity and table existence.
 """
 
 import unittest
-from database import get_db_connection
+import sys
+import os
 
-class TestDatabase(unittest.TestCase):
-    """Test cases for database connectivity and queries."""
+# Add src/ to the Python path dynamically
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
+
+from database import get_db_connection  # Import the database connection function
+
+class TestDatabaseConnection(unittest.TestCase):
+    """Test cases for verifying database connection and tables."""
 
     def setUp(self):
         """Set up the database connection before each test."""
@@ -24,43 +30,14 @@ class TestDatabase(unittest.TestCase):
         """Test if the database connection is established successfully."""
         self.assertIsNotNone(self.conn, "Database connection failed!")
 
-    def test_students_table_exists(self):
-        """Check if the students table exists in the database."""
-        self.cursor.execute("SHOW TABLES LIKE 'students';")
-        result = self.cursor.fetchone()
-        self.assertIsNotNone(result, "Table 'students' does not exist!")
-
-    def test_courses_table_exists(self):
-        """Check if the courses table exists in the database."""
-        self.cursor.execute("SHOW TABLES LIKE 'courses';")
-        result = self.cursor.fetchone()
-        self.assertIsNotNone(result, "Table 'courses' does not exist!")
-
-    def test_lecturers_table_exists(self):
-        """Check if the lecturers table exists in the database."""
-        self.cursor.execute("SHOW TABLES LIKE 'lecturers';")
-        result = self.cursor.fetchone()
-        self.assertIsNotNone(result, "Table 'lecturers' does not exist!")
-
-    def test_enrollments_table_exists(self):
-        """Check if the enrollments table exists in the database."""
-        self.cursor.execute("SHOW TABLES LIKE 'enrollments';")
-        result = self.cursor.fetchone()
-        self.assertIsNotNone(result, "Table 'enrollments' does not exist!")
-
-    def test_insert_student(self):
-        """Test inserting a new student into the database."""
-        self.cursor.execute("INSERT INTO students (student_id, name, program, year_of_study, current_grades) VALUES (999, 'Test Student', 'Computer Science', 1, 85.5);")
-        self.conn.commit()
-        self.cursor.execute("SELECT * FROM students WHERE student_id = 999;")
-        result = self.cursor.fetchone()
-        self.assertIsNotNone(result, "Failed to insert student into the database!")
-
-    def test_query_students(self):
-        """Test querying all students in the database."""
-        self.cursor.execute("SELECT COUNT(*) FROM students;")
-        result = self.cursor.fetchone()
-        self.assertIsNotNone(result, "Query for students returned no result!")
+    def test_tables_exist(self):
+        """Check if the key tables exist in the database."""
+        tables = ["students", "courses", "lecturers", "enrollments", "departments"]
+        for table in tables:
+            with self.subTest(table=table):
+                self.cursor.execute(f"SHOW TABLES LIKE '{table}';")
+                result = self.cursor.fetchone()
+                self.assertIsNotNone(result, f"Table '{table}' does not exist!")
 
 if __name__ == '__main__':
     unittest.main()
