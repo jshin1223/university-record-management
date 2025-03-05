@@ -1,7 +1,15 @@
 from database import get_db_connection
 
 def get_students_in_course(course_name):
-    """Find all students enrolled in a specific course."""
+    """
+    Retrieve all students enrolled in a specific course.
+    
+    Args:
+        course_name (str): Name of the course.
+    
+    Returns:
+        list: A list of student names enrolled in the course.
+    """
     query = """
     SELECT s.name
     FROM students s
@@ -17,7 +25,15 @@ def get_students_in_course(course_name):
     return result
 
 def get_courses_by_department(department_name):
-    """List all courses taught by lecturers in a specific department."""
+    """
+    List all courses taught by lecturers in a specific department.
+    
+    Args:
+        department_name (str): The department name.
+    
+    Returns:
+        list: A list of tuples (course_name, lecturer_name).
+    """
     query = """
     SELECT c.name, l.name AS lecturer
     FROM courses c
@@ -33,7 +49,12 @@ def get_courses_by_department(department_name):
     return result
 
 def get_top_students():
-    """List all students with an average grade above 70%."""
+    """
+    List all students with an average grade above 70%.
+    
+    Returns:
+        list: A list of tuples (student_name, current_grades).
+    """
     query = """
     SELECT name, current_grades
     FROM students
@@ -47,7 +68,15 @@ def get_top_students():
     return result
 
 def get_staff_by_department(department_name):
-    """Find all staff members employed in a specific department."""
+    """
+    Find all staff members employed in a specific department.
+    
+    Args:
+        department_name (str): The department name.
+    
+    Returns:
+        list: A list of tuples (staff_name, job_title).
+    """
     query = """
     SELECT name, job_title
     FROM non_academic_staff
@@ -59,4 +88,3 @@ def get_staff_by_department(department_name):
         result = cursor.fetchall()
     conn.close()
     return result
-

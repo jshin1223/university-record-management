@@ -1,9 +1,13 @@
 import queries
 
 def main():
+    """
+    University Record Management System Command Line Interface (CLI).
+    Provides users with a menu to query university records.
+    """
     while True:
         print("\n************************************")
-        print("  University Record Management System")
+        print("  🎓 University Record Management System")
         print("************************************")
         print("1. 🔍 Find students in a course")
         print("2. 📚 List courses taught by lecturers in a department")
