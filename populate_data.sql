@@ -16,7 +16,7 @@ TRUNCATE TABLE non_academic_staff;
 SET FOREIGN_KEY_CHECKS = 1;
 
 
--- Insert Departments (10 departments)
+-- Insert Departments
 INSERT INTO departments (department_name, faculty, research_areas, courses_offered, staff_members) VALUES
 ('Computer Science', 'Engineering', 'AI, Data Science, Cybersecurity', 20, 50),
 ('Mathematics', 'Science', 'Statistics, Algebra, Geometry', 15, 40),
@@ -29,7 +29,7 @@ INSERT INTO departments (department_name, faculty, research_areas, courses_offer
 ('Electrical Engineering', 'Engineering', 'Circuits, Renewable Energy, Signal Processing', 22, 55),
 ('History', 'Humanities', 'Medieval Studies, Modern History', 10, 20);
 
--- Insert Lecturers (30 lecturers)
+-- Insert Lecturers
 INSERT INTO lecturers (lecturer_id, name, department, academic_qualifications, expertise, course_load, research_interests, publications)
 VALUES
 (1, 'Alice Johnson', 'Computer Science', 'PhD AI', 'Machine Learning', 3, 'Neural Networks, AI Ethics', 'AI Journal 2024'),
@@ -63,7 +63,7 @@ VALUES
 (29, 'Charles Roberts', 'Electrical Engineering', 'PhD Control Systems', 'Automation', 3, 'Smart Grid Development', 'Energy Systems Journal 2022'),
 (30, 'Diana Hughes', 'History', 'PhD Cultural Studies', 'Renaissance Art', 2, 'Art History Research', 'Cultural Review 2023');
 
--- Insert Courses for Computer Science, Math, Physics, Business, Biology, Mechanical Engineering, Electrical Engineering Dept.
+-- Insert Courses for all departments
 INSERT INTO courses (course_code, name, description, department, level, credits, prerequisites, schedule, materials)
 VALUES
 ('CS101', 'Introduction to AI', 'Basics of AI concepts and applications', 'Computer Science', 1, 3, NULL, 'Mon/Wed 10-11 AM', 'Lecture Notes'),
@@ -118,7 +118,7 @@ VALUES
 ('PSY205', 'Developmental Psychology', 'Psychological growth from childhood to adulthood.', 'Psychology', 3, 3, NULL, 'Mon/Wed 4-5 PM', 'Lecture Notes');
 
 
--- Insert Students (30 students)
+-- Insert Students
 INSERT INTO students (student_id, name, dob, contact_info, program, year_of_study, current_grades, graduation_status, disciplinary_records, advisor_id)
 VALUES
 (1, 'John Doe', '2001-05-15', 'john.doe@liverpool.ac.uk', 'Computer Science', 4, 85.5, 'In Progress', NULL, 1),
@@ -168,7 +168,7 @@ JOIN courses c ON l.department = c.department
 ORDER BY RAND()
 LIMIT 60;
 
--- Insert Research Projects (50 projects)
+-- Insert Research Projects
 INSERT INTO research_projects (project_title, principal_investigator, funding_sources, team_members, publications, outcomes)
 VALUES
 ('AI in Healthcare', 1, 'UK Research Grant', 'Dr. Alice Johnson, Student 1, Student 2', 'AI Journal 2024', 'Developed AI-based diagnosis system'),
@@ -211,7 +211,7 @@ VALUES
 ('AI in Creative Arts', 10, 'Digital Media Research Fund', 'Dr. Sarah Adams, Student 75, Student 76', 'Art & AI Journal 2024', 'AI-assisted digital art creation'),
 ('AI and Mental Health Diagnosis', 7, 'Psychiatric AI Research Fund', 'Dr. George White, Student 77, Student 78', 'Mental Health Science 2024', 'AI-based mental health screening');
 
--- Insert Programs (20 programs)
+-- Insert Programs
 INSERT INTO programs (name, degree_awarded, duration, course_requirements, enrolment_details)
 VALUES
 ('Computer Science', 'BSc', 4, 'Core AI, Data Science, Software Engineering', 'Full-time'),
@@ -235,7 +235,7 @@ VALUES
 ('Architecture', 'BArch', 4, 'Structural Design, Urban Planning', 'Full-time'),
 ('Education', 'BEd', 3, 'Teaching Pedagogy, Curriculum Development', 'Full-time');
 
--- Insert Non-Academic Staff (10 staff members)
+-- Insert Non-Academic Staff
 INSERT INTO non_academic_staff (staff_id, name, job_title, department, employment_type, contract_details, salary_information, emergency_contact)
 VALUES
 (1, 'Mike Johnson', 'Administrator', 'Computer Science', 'Full-time', '5-year contract', 50000, 'mike.johnson@liverpool.ac.uk'),
