@@ -1,17 +1,16 @@
 # 🎓 University Record Management System
 
 ## 🌍 Table of Contents
-- [Project Description](#project-description)
-- [Installation](#installation)
-- [Execution and Usage](#execution-and-usage)
-- [Running Unit Tests](#running-unit-tests)
-- [Executing SQL File in MySQL Workbench](#executing-sql-file-in-mysql-workbench)
-- [Technologies Used](#technologies-used)
-- [Current Features](#current-features)
-- [Contributors](#contributors)
-- [License](#license)
 
----
+- [📚 Project Description](#project-description)
+- [⚙️ Installation](#installation)
+- [🚀 Execution and Usage](#execution-and-usage)
+- [🧪 Running Unit Tests](#running-unit-tests)
+- [💾 Executing SQL File in MySQL Workbench](#executing-sql-file-in-mysql-workbench)
+- [🛠 Technologies Used](#technologies-used)
+- [🎯 Current Features](#current-features)
+- [👥 Contributors](#contributors)
+- [📜 License](#license)
 
 ## 📚 Project Description
 The **University Record Management System** is a Python-based command-line application designed to manage university records, including:
@@ -23,48 +22,40 @@ The **University Record Management System** is a Python-based command-line appli
 - **Research Projects**
 - **Non-Academic Staff**
 
-The system enables users to retrieve university records through a user-friendly **menu-based interface**.
+The system enables users to retrieve university records through a user-friendly menu-based interface.
 
----
-
-## 🔧 Installation
-### 🛠 Prerequisites
-Ensure you have the following installed:
-1. **Python 3.8 or higher** – Download from the [official Python website](https://www.python.org/downloads/).
+## ⚙️ Installation
+### Prerequisites
+Ensure you have the following installed on your system:
+1. **Python 3.8 or higher** – Download and install from the [official Python website](https://www.python.org/downloads/).
 2. **MySQL Server** – Install from the [official MySQL website](https://dev.mysql.com/downloads/installer/).
-3. **MySQL Workbench** *(optional but recommended)* – Used to manage and visualize the database.
+3. **MySQL Workbench** – Optional but recommended for executing SQL scripts and managing the database.
 
-### 📌 Steps to Install
-1. **Clone the Repository**
-   ```sh
-   git clone <repository_url>
-   cd <repository_directory>
-   ```
-2. **Run the Installation Script**
-   ```sh
-   python install.py
-   ```
-   This will:
-   - Install all required dependencies (`pip install -r requirements.txt`).
-   - Set up the MySQL database.
-
----
+### Installing Dependencies
+Once Python is installed, install the required dependencies using:
+```sh
+pip install -r requirements.txt
+```
 
 ## 🚀 Execution and Usage
-### 🎯 Start the Application
-Once installed, run the application with:
+### Clone the Repository
+```sh
+git clone <repository_url>
+cd <repository_directory>
+```
+
+### Set Up and Run the Application
+To set up the database and launch the system, run:
 ```sh
 python start.py
 ```
-This will:
-1. **Create the necessary database schema** (if not already created).
-2. **Populate the database with initial data**.
-3. **Launch the University Record Management System**.
+This command:
+1. **Creates the database schema**.
+2. **Populates the database with data**.
+3. **Launches the application**.
 
----
-
-### 📝 Menu Options
-Once the system is running, you will see the following menu:
+### Menu Options
+When the application starts, you will see the following menu:
 ```
 ************************************
   🎓 University Record Management System
@@ -77,53 +68,43 @@ Once the system is running, you will see the following menu:
 ************************************
 Enter your choice:
 ```
-Simply enter the number corresponding to the action you wish to perform.
+Choose an option by entering the corresponding number.
 
----
-
-## ✅ Running Unit Tests
-To verify that everything is working correctly, **run all unit tests**:
+## 🧪 Running Unit Tests
+To run all unit tests, execute:
 ```sh
 python test.py
 ```
-This will:
-- Automatically **discover all test files** in the `tests` directory.
-- **Run all test cases** and display results.
+This will run all tests in the `tests/` directory.
 
----
-
-## 📊 Executing SQL File in MySQL Workbench *(Optional)*
-If you want to **manually execute the SQL script** for data insertion:
+## 💾 Executing SQL File in MySQL Workbench
+To insert initial data into MySQL, follow these steps:
 1. Open **MySQL Workbench** and connect to your MySQL Server.
-2. Select the database `university_db` *(or create it if it doesn’t exist)*.
+2. Select the database `university_db` (or create it if it does not exist).
 3. Click **File > Open SQL Script** and select `data/populate_data.sql`.
 4. Click **Execute** to run the script.
-5. Verify the data:
+5. Verify the data using:
    ```sql
    SELECT * FROM students;
    SELECT * FROM courses;
    ```
 
----
+## 🛠 Technologies Used
+The project was built using:
+- **Python 3.8 or higher**
+- **MySQL** (Relational Database Management System)
+- **PyMySQL** (Python MySQL connector)
+- **SQLAlchemy** (ORM for database models)
 
-## 🏢 Technologies Used
-- **Python 3.8+** *(Programming Language)*
-- **MySQL** *(Relational Database Management System)*
-- **PyMySQL** *(Python MySQL Connector)*
-- **SQLAlchemy** *(ORM for database models)*
-
----
-
-## 📏 Current Features
-✅ **Student Records:** Retrieve student details and enrollment information.  
-✅ **Lecturer Records:** View lecturer details and assigned courses.  
-✅ **Course Records:** List courses offered by departments.  
-✅ **Enrollment Management:** Ensure students are only enrolled in courses within their department.  
-✅ **Department Records:** Retrieve details about university departments.  
-✅ **Research Projects:** View research projects supervised by lecturers.  
-✅ **Non-Academic Staff Management:** Retrieve non-academic staff details.  
-
----
+## 🎯 Current Features
+The University Record Management System supports:
+- **Student Records:** Retrieve student details and enrollment information.
+- **Lecturer Records:** View lecturer details and assigned courses.
+- **Course Records:** List courses offered by departments.
+- **Enrollment Management:** Ensure students are only enrolled in courses within their department.
+- **Department Records:** Retrieve details about university departments.
+- **Research Projects:** View research projects supervised by lecturers.
+- **Non-Academic Staff Management:** Retrieve non-academic staff details.
 
 ## 👥 Contributors
 - **Matthew Stevenson**
@@ -131,16 +112,10 @@ If you want to **manually execute the SQL script** for data insertion:
 - **Auwal Muhammad Musa**
 - **Sung Shin**
 
----
+## 📜 License
+This project is licensed under the MIT License.
 
-## 📚 License
-This project is licensed under the **MIT License**.
-
-**Copyright (c) 2025**
-- Matthew Stevenson
-- Hugo Janse van Renburg
-- Auwal Muhammad Musa
-- Sung Shin
+**Copyright (c) 2025 Matthew Stevenson, Hugo Janse van Renburg, Auwal Muhammad Musa, Sung Shin**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
