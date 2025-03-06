@@ -1,18 +1,16 @@
-# University Record Management System
+# 🎓 University Record Management System
 
-## Table of Contents
+## 📚 Table of Contents
 - [Project Description](#project-description)
-- [Installation](#installation)
-- [Execution and Usage](#execution-and-usage)
-- [Executing SQL File in MySQL Workbench](#executing-sql-file-in-mysql-workbench)
-- [Folder Structure](#folder-structure)
+- [Installation & Execution](#installation--execution)
 - [Technologies Used](#technologies-used)
 - [Current Features](#current-features)
-- [Running Tests](#running-tests)
 - [Contributors](#contributors)
 - [License](#license)
 
-## Project Description
+---
+
+## 📌 Project Description
 The **University Record Management System** is a Python-based command-line application designed to manage university records, including:
 
 - **Student Records**
@@ -22,49 +20,44 @@ The **University Record Management System** is a Python-based command-line appli
 - **Research Projects**
 - **Non-Academic Staff**
 
-The system enables users to retrieve university records through a **menu-based interface**.
+The system enables users to retrieve university records through a user-friendly menu-based interface.
 
 ---
 
-## Installation
-### **Prerequisites**
-Ensure you have the following installed on your system:
-1. **Python 3.8 or higher** – Download and install from the [official Python website](https://www.python.org/downloads/).
+## ⚙️ Installation & Execution
+
+### 📝 **Prerequisites**
+Ensure you have the following installed:
+1. **Python 3.8 or higher** – Download from the [official Python website](https://www.python.org/downloads/).
 2. **MySQL Server** – Install from the [official MySQL website](https://dev.mysql.com/downloads/installer/).
-3. **MySQL Workbench** – Optional but recommended for executing SQL scripts and managing the database.
-
-### **Installing Dependencies**
-Once Python is installed, install the required dependencies using:
-```sh
-pip install -r requirements.txt
-```
 
 ---
 
-## Execution and Usage
-### **Clone the Repository**
+### 🚀 **One-Step Installation & Execution**
+The setup script **automates** everything:  
+💚 Installs dependencies  
+💚 Creates the database and tables  
+💚 Populates the database with data  
+💚 Launches the application  
+
+#### **Step 1: Clone the Repository**
 ```sh
 git clone <repository_url>
-cd university_db
+cd <repository_directory>
 ```
 
-### **Set Up the Database**
-Before running the application, ensure the database schema is created and populated with initial data:
-
-1. **Navigate to the `src/` directory and run the database model script:**
-   ```sh
-   python src/models.py
-   ```
-2. **Execute the SQL data population script in MySQL Workbench** (see next section).
-
-### **Run the Application**
-Navigate to the project directory and execute:
+#### **Step 2: Run the Setup Script**
 ```sh
-python src/ui.py
+python setup.py
 ```
 
-### **Menu Options**
-When the application starts, you will see the following menu:
+That's it! 🎉 The system will start running automatically.
+
+---
+
+### 🎮 **How to Use the Application**
+After running `python setup.py`, the following menu will appear:
+
 ```
 ************************************
   🎓 University Record Management System
@@ -77,79 +70,31 @@ When the application starts, you will see the following menu:
 ************************************
 Enter your choice:
 ```
-Choose an option by entering the corresponding number.
+Simply enter the corresponding number to retrieve the desired information.
 
 ---
 
-## Executing SQL File in MySQL Workbench
-To insert initial data into MySQL, follow these steps:
-1. **Open MySQL Workbench** and connect to your MySQL Server.
-2. **Select the database `university_db`** (or create it if it does not exist).
-3. **Click `File > Open SQL Script`** and select `populate_data.sql`.
-4. **Click `Execute`** to run the script.
-5. **Verify the data using:**
-   ```sql
-   SELECT * FROM students;
-   SELECT * FROM courses;
-   ```
-
----
-
-## Folder Structure
-The project follows the **src/tests structure** for better organization:
-
-```
-university_db/
-│── src/                # Application source code
-│   ├── __init__.py     # Marks src as a package
-│   ├── config.py       # Database configuration
-│   ├── database.py     # Database connection functions
-│   ├── models.py       # ORM models and schema
-│   ├── queries.py      # Query functions for retrieving data
-│   ├── ui.py           # Command-line user interface
-│── tests/              # Unit tests
-│   ├── __init__.py     # Marks tests as a package
-│   ├── test_database.py # Unit test for database connection
-│── populate_data.sql   # SQL script to insert test data
-│── requirements.txt    # Dependencies for the project
-│── README.md           # Project documentation
-```
-
----
-
-## Technologies Used
+## 🛠️ Technologies Used
 The project was built using:
-- **Python 3.8 or higher**
+- **Python 3.8+**
 - **MySQL** (Relational Database Management System)
-- **PyMySQL** (Python MySQL connector)
+- **PyMySQL** (Python MySQL Connector)
 - **SQLAlchemy** (ORM for database models)
 
 ---
 
-## Current Features
-The University Record Management System supports:
-- **Student Records:** Retrieve student details and enrollment information.
-- **Lecturer Records:** View lecturer details and assigned courses.
-- **Course Records:** List courses offered by departments.
-- **Enrollment Management:** Ensure students are only enrolled in courses within their department.
-- **Department Records:** Retrieve details about university departments.
-- **Research Projects:** View research projects supervised by lecturers.
-- **Non-Academic Staff Management:** Retrieve non-academic staff details.
+## 🌟 Current Features
+👉 **Student Records:** Retrieve student details and enrollment information  
+👉 **Lecturer Records:** View lecturer details and assigned courses  
+👉 **Course Records:** List courses offered by departments  
+👉 **Enrollment Management:** Ensure students are only enrolled in courses within their department  
+👉 **Department Records:** Retrieve details about university departments  
+👉 **Research Projects:** View research projects supervised by lecturers  
+👉 **Non-Academic Staff Management:** Retrieve non-academic staff details  
 
 ---
 
-## Running Tests
-The project includes **unit tests** to check database connectivity and table existence.
-
-### **Run Tests**
-To run the tests, execute:
-```sh
-python -m unittest tests/test_database.py
-```
-
----
-
-## Contributors
+## 👥 Contributors
 - **Matthew Stevenson**
 - **Hugo Janse van Renburg**
 - **Auwal Muhammad Musa**
@@ -157,13 +102,31 @@ python -m unittest tests/test_database.py
 
 ---
 
-## License
+## 📚 License
 This project is licensed under the MIT License.
 
-**Copyright (c) 2025 Matthew Stevenson, Hugo Janse van Renburg, Auwal Muhammad Musa, Sung Shin**
+```
+MIT License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Copyright (c) 2025
+Matthew Stevenson, Hugo Janse van Renburg, Auwal Muhammad Musa, Sung Shin
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+```
+
