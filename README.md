@@ -1,4 +1,4 @@
-# 🎓 University Record Management System
+# 🎓 # 📖 University Record Management System
 
 ## 🌍 Table of Contents
 
@@ -12,7 +12,8 @@
 - [Contributors](#contributors)
 - [License](#license)
 
-## Project Description
+<a id="project-description"></a>
+## 📚 Project Description
 The **University Record Management System** is a Python-based command-line application designed to manage university records, including:
 
 - **Student Records**
@@ -24,7 +25,8 @@ The **University Record Management System** is a Python-based command-line appli
 
 The system enables users to retrieve university records through a user-friendly menu-based interface.
 
-## Installation
+<a id="installation"></a>
+## ⚙️ Installation
 ### Prerequisites
 Ensure you have the following installed on your system:
 1. **Python 3.8 or higher** – Download and install from the [official Python website](https://www.python.org/downloads/).
@@ -37,7 +39,8 @@ Once Python is installed, install the required dependencies using:
 pip install -r requirements.txt
 ```
 
-## Execution and Usage
+<a id="execution-and-usage"></a>
+## 🚀 Execution and Usage
 ### Clone the Repository
 ```sh
 git clone <repository_url>
@@ -70,14 +73,16 @@ Enter your choice:
 ```
 Choose an option by entering the corresponding number.
 
-## Running Unit Tests
+<a id="running-unit-tests"></a>
+## 🧪 Running Unit Tests
 To run all unit tests, execute:
 ```sh
 python test.py
 ```
 This will run all tests in the `tests/` directory.
 
-## Executing SQL File in MySQL Workbench
+<a id="executing-sql-file-in-mysql-workbench"></a>
+## 💾 Executing SQL File in MySQL Workbench
 To insert initial data into MySQL, follow these steps:
 1. Open **MySQL Workbench** and connect to your MySQL Server.
 2. Select the database `university_db` (or create it if it does not exist).
@@ -89,14 +94,16 @@ To insert initial data into MySQL, follow these steps:
    SELECT * FROM courses;
    ```
 
-## Technologies Used
+<a id="technologies-used"></a>
+## 🛠 Technologies Used
 The project was built using:
 - **Python 3.8 or higher**
 - **MySQL** (Relational Database Management System)
 - **PyMySQL** (Python MySQL connector)
 - **SQLAlchemy** (ORM for database models)
 
-## Current Features
+<a id="current-features"></a>
+## 🎯 Current Features
 The University Record Management System supports:
 - **Student Records:** Retrieve student details and enrollment information.
 - **Lecturer Records:** View lecturer details and assigned courses.
@@ -106,13 +113,15 @@ The University Record Management System supports:
 - **Research Projects:** View research projects supervised by lecturers.
 - **Non-Academic Staff Management:** Retrieve non-academic staff details.
 
-## Contributors
+<a id="contributors"></a>
+## 👥 Contributors
 - **Matthew Stevenson**
 - **Hugo Janse van Renburg**
 - **Auwal Muhammad Musa**
 - **Sung Shin**
 
-## License
+<a id="license"></a>
+## 📜 License
 This project is licensed under the MIT License.
 
 **Copyright (c) 2025 Matthew Stevenson, Hugo Janse van Renburg, Auwal Muhammad Musa, Sung Shin**
