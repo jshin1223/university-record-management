@@ -1,4 +1,4 @@
-# 🎓 # 📖 University Record Management System
+# 🎓 University Record Management System
 
 ## 🌍 Table of Contents
 
