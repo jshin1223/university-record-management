@@ -33,19 +33,22 @@ Ensure you have the following installed on your system:
 2. **MySQL Server** – Install from the [official MySQL website](https://dev.mysql.com/downloads/installer/).
 3. **MySQL Workbench** – Optional but recommended for executing SQL scripts and managing the database.
 
-### Installing Dependencies
-Once Python is installed, install the required dependencies using:
-```sh
-pip install -r requirements.txt
-```
+### 📌 Steps to Install
+
+1. **Clone the Repository**
+   ```sh
+   git clone <repository_url>
+   cd <repository_directory>
+   ```
+
+2. **Run the Installation Script**
+   ```sh
+   python install.py
+   ```
+   This will install all required dependencies:
 
 <a id="execution-and-usage"></a>
 ## 🚀 Execution and Usage
-### Clone the Repository
-```sh
-git clone <repository_url>
-cd <repository_directory>
-```
 
 ### Set Up and Run the Application
 To set up the database and launch the system, run:
