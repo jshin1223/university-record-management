@@ -13,13 +13,13 @@ def display_menu():
     """Displays the main menu."""
     print("\n" + "*" * 36)
     print("  🎓 University Record Management System")
-    print("*" * 36)
-    print("1. 🎓 List all students in a major")  # Moved to first option
-    print("2. 🧑‍🏫 List all professors in a department")  # Moved to second option
-    print("3. 🔍 Find students in a course")
-    print("4. 📚 List courses taught by lecturers in a department")
-    print("5. 🏆 List students with an average grade above 70%")
-    print("6. 👨‍🏫 Find staff members in a department")
+    print("*" * 40)
+    print("1. 🏫 List all students in a major")
+    print("2. 🧑‍🎓 List all professors in a department")
+    print("3. 🔎 Find students in a course")
+    print("4. 📖 List courses taught by lecturers in a department")
+    print("5. 🥇 List students with an average grade above 70%")
+    print("6. 🏢 Find staff members in a department")
     print("7. 🚪 Exit")  # Adjusted numbering
     print("*" * 36)
 
