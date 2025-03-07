@@ -20,7 +20,7 @@ def display_menu():
     print("2. 📜  List all courses by department")
     print("3. 🔎  Find students in a course")
     print("4. 🥇  List students with an average grade above 70%")
-    print("5. 🏛️  List all departments")  # Fixed missing space after emoji
+    print("5. 🏛️  List all departments")
     print("6. 🧑‍🏫  List all professors in a department")
     print("7. 📖  List courses taught by lecturers in a department")
     print("8. 🏢  Find staff members in a department")
