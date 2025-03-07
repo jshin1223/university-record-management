@@ -11,7 +11,7 @@ from collections import defaultdict
 
 def display_menu():
     """Displays the main menu."""
-    print("\n" + "*" * 36)
+    print("\n" + "*" * 40)
     print("  🎓 University Record Management System")
     print("*" * 40)
     print("1. 🏫 List all students in a major")
@@ -21,7 +21,7 @@ def display_menu():
     print("5. 🥇 List students with an average grade above 70%")
     print("6. 🏢 Find staff members in a department")
     print("7. 🚪 Exit")  # Adjusted numbering
-    print("*" * 36)
+    print("*" * 40)
 
 def main():
     """Main function to handle user input and execute queries."""
