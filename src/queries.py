@@ -1,5 +1,29 @@
 from database import get_db_connection
 
+def get_students_in_major(major_name):
+    """Retrieve all students enrolled in the same major."""
+    query = """
+    SELECT name FROM students WHERE program = %s;
+    """
+    conn = get_db_connection()
+    with conn.cursor() as cursor:
+        cursor.execute(query, (major_name,))
+        result = cursor.fetchall()
+    conn.close()
+    return result
+
+def get_professors_in_department(department_name):
+    """Retrieve all professors in the same department."""
+    query = """
+    SELECT name FROM lecturers WHERE department = %s;
+    """
+    conn = get_db_connection()
+    with conn.cursor() as cursor:
+        cursor.execute(query, (department_name,))
+        result = cursor.fetchall()
+    conn.close()
+    return result
+
 def get_students_in_course(course_name):
     """
     Retrieve all students enrolled in a specific course.
