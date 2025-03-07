@@ -1,27 +1,31 @@
 import sys
 from queries import (
     get_students_in_major,
+    get_courses_by_department,
     get_professors_in_department,
     get_students_in_course,
-    get_courses_by_department,
+    get_courses_by_lecturer_in_department,
     get_top_students,
-    get_staff_by_department,
+    get_staff_in_department,
+    get_all_departments,
 )
 from collections import defaultdict
 
 def display_menu():
     """Displays the main menu."""
-    print("\n" + "*" * 40)
+    print("\n" + "*" * 45)
     print("  🎓 University Record Management System")
-    print("*" * 40)
-    print("1. 🏫 List all students in a major")
-    print("2. 🧑‍🎓 List all professors in a department")
-    print("3. 🔎 Find students in a course")
-    print("4. 📖 List courses taught by lecturers in a department")
-    print("5. 🥇 List students with an average grade above 70%")
-    print("6. 🏢 Find staff members in a department")
-    print("7. 🚪 Exit")  # Adjusted numbering
-    print("*" * 40)
+    print("*" * 45)
+    print("1. 🏫  List all students in a major")
+    print("2. 📜  List all courses by department")
+    print("3. 🔎  Find students in a course")
+    print("4. 🥇  List students with an average grade above 70%")
+    print("5. 🏛️  List all departments")  # Fixed missing space after emoji
+    print("6. 🧑‍🏫  List all professors in a department")
+    print("7. 📖  List courses taught by lecturers in a department")
+    print("8. 🏢  Find staff members in a department")
+    print("9. 🚪  Exit")
+    print("*" * 45)
 
 def main():
     """Main function to handle user input and execute queries."""
@@ -32,40 +36,49 @@ def main():
         if choice == "1":
             major_name = input("\n🔹 Enter major name: ").strip()
             students = get_students_in_major(major_name)
-            print_results(f"Students enrolled in {major_name}", students)  # ✅ Fix function name
+            print_results(f"Students enrolled in {major_name}", students)
 
         elif choice == "2":
             department_name = input("\n🔹 Enter department name: ").strip()
-            professors = get_professors_in_department(department_name)
-            print_results(f"Professors in {department_name.upper()}", professors)  # ✅ Fix function name
+            courses = get_courses_by_department(department_name)
+            print_results(f"Courses in {department_name.upper()}", courses)
 
         elif choice == "3":
             course_name = input("\n🔹 Enter course name: ").strip()
             students = get_students_in_course(course_name)
-            print_results(f"Students enrolled in {course_name}", students)  # ✅ Fix function name
+            print_results(f"Students enrolled in {course_name}", students)
 
         elif choice == "4":
-            department_name = input("\n🔹 Enter department name: ").strip()
-            courses = get_courses_by_department(department_name)
-            print_results_grouped(f"Courses in {department_name.upper()}", courses)  # ✅ Use grouped function
+            students = get_top_students()
+            print_results("Students with an average grade above 70%", students)
 
         elif choice == "5":
-            students = get_top_students()
-            print_results("Students with an average grade above 70%", students)  # ✅ Fix function name
+            departments = get_all_departments()
+            print_results("List of Departments", departments)
 
         elif choice == "6":
             department_name = input("\n🔹 Enter department name: ").strip()
-            staff = get_staff_by_department(department_name)
-            print_results(f"Staff in {department_name.upper()}", staff)  # ✅ Fix function name
+            professors = get_professors_in_department(department_name)
+            print_results(f"Professors in {department_name.upper()}", professors)
 
         elif choice == "7":
+            department_name = input("\n🔹 Enter department name: ").strip()
+            courses = get_courses_by_lecturer_in_department(department_name)
+            print_results_grouped(f"Courses in {department_name.upper()}", courses)
+
+        elif choice == "8":
+            department_name = input("\n🔹 Enter department name: ").strip()
+            staff = get_staff_in_department(department_name)
+            print_results(f"Staff in {department_name.upper()}", staff)
+
+        elif choice == "9":
             print("\n🚪 Exiting... Goodbye! 👋\n")
             sys.exit(0)
 
         else:
             print("\n❌ Invalid choice! Please select a valid option.")
 
-        # Ask user whether to continue or exit
+        # Prompt user if they want to continue or exit
         while True:
             continue_choice = input("\n🔄 Would you like to perform another operation? (y/n): ").strip().lower()
             if continue_choice == "y":
@@ -84,12 +97,18 @@ def print_results(title, data):
 
     if data:
         for item in data:
-            # Ensure proper formatting when tuple contains two values (e.g., Name and Detail)
-            if isinstance(item, tuple) and len(item) == 2:
-                name, detail = item
-                print(f"✔️ {name}: {detail}")  # Displays "✔️ Name: Detail"
+            if isinstance(item, tuple):
+                if all(isinstance(x, str) and len(x) == 1 for x in item):  
+                    # If the tuple contains single-character elements (fix for department names)
+                    print(f"✔️ {''.join(item)}")  
+                elif len(item) == 2:  
+                    # If the tuple contains two values (Name and Detail)
+                    name, detail = item
+                    print(f"✔️ {name}: {detail}")  
+                else:
+                    print(f"✔️ {' '.join(map(str, item))}")  
             else:
-                print(f"✔️ {' '.join(map(str, item))}")  # Removes commas and joins elements
+                print(f"✔️ {item}")  # If item is a single string
     else:
         print("❌ No results found.")
 

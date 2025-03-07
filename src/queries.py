@@ -48,7 +48,7 @@ def get_students_in_course(course_name):
     conn.close()
     return result
 
-def get_courses_by_department(department_name):
+def get_courses_by_lecturer_in_department(department_name):
     """
     List all courses taught by lecturers in a specific department.
     
@@ -91,7 +91,7 @@ def get_top_students():
     conn.close()
     return result
 
-def get_staff_by_department(department_name):
+def get_staff_in_department(department_name):
     """
     Find all staff members employed in a specific department.
     
@@ -112,3 +112,30 @@ def get_staff_by_department(department_name):
         result = cursor.fetchall()
     conn.close()
     return result
+
+def get_all_departments():
+    """Retrieve a list of all departments."""
+    query = "SELECT department_name FROM departments;"
+    conn = get_db_connection()
+    with conn.cursor() as cursor:
+        cursor.execute(query)
+        result = cursor.fetchall()
+    conn.close()
+    
+    # Ensure department names are returned in correct format
+    return [row[0] for row in result]  # This removes spaces between characters
+
+def get_courses_by_department(department_name):
+    """Retrieve all courses for a specific department."""
+    query = """
+    SELECT name
+    FROM courses
+    WHERE department = %s;
+    """
+    conn = get_db_connection()
+    with conn.cursor() as cursor:
+        cursor.execute(query, (department_name,))
+        result = cursor.fetchall()
+    conn.close()
+    return result
+
