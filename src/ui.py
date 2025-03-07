@@ -76,17 +76,23 @@ def main():
             else:
                 print("❌ Invalid input! Please enter 'y' to continue or 'n' to exit.")
 
-
 def print_results(title, data):
-    """Formats and displays query results."""
+    """Formats and displays query results with structured output."""
     print("\n" + "*" * 40)
     print(f"📌 {title}:")
     print("*" * 40)
+
     if data:
         for item in data:
-            print(f"✔️ {' '.join(map(str, item))}")  # Convert tuple to string
+            # Ensure proper formatting when tuple contains two values (e.g., Name and Detail)
+            if isinstance(item, tuple) and len(item) == 2:
+                name, detail = item
+                print(f"✔️ {name}: {detail}")  # Displays "✔️ Name: Detail"
+            else:
+                print(f"✔️ {' '.join(map(str, item))}")  # Removes commas and joins elements
     else:
         print("❌ No results found.")
+
     print("*" * 40)
 
 def print_results_grouped (title, data):
@@ -104,7 +110,7 @@ def print_results_grouped (title, data):
 
         # Print lecturer and their courses
         for lecturer, courses in lecturer_courses.items():
-            print(f"\n👨‍🏫 {lecturer}:")
+            print(f"\n👨‍🏫 Lecturer: {lecturer}")
             for course in courses:
                 print(f"   - {course}")
     else:
