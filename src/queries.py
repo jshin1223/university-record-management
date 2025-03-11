@@ -13,12 +13,12 @@ def get_students_in_major(major_name):
     return result
 
 def get_professors_in_department(department_name):
-    """Retrieve all professors in a specific department with 'Prof.' prefix."""
+    """Retrieve all professors in a specific department with 'Dr.' prefix."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
     query = """
-    SELECT CONCAT('Prof. ', name) AS professor_name, academic_qualifications, expertise
+    SELECT CONCAT('Dr. ', name) AS professor_name, academic_qualifications, expertise
     FROM lecturers
     WHERE department = %s;
     """
@@ -54,12 +54,12 @@ def get_students_in_course(course_name):
     return result
 
 def get_courses_taught_by_lecturers(department_name):
-    """Retrieve courses taught by lecturers in a department with 'Prof.' prefix."""
+    """Retrieve courses taught by lecturers in a department with 'Dr.' prefix."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
     query = """
-    SELECT CONCAT('Prof. ', l.name) AS lecturer_name, GROUP_CONCAT(c.name SEPARATOR ', ') AS courses
+    SELECT CONCAT('Dr. ', l.name) AS lecturer_name, GROUP_CONCAT(c.name SEPARATOR ', ') AS courses
     FROM lecturers l
     JOIN lecturer_courses lc ON l.lecturer_id = lc.lecturer_id
     JOIN courses c ON lc.course_id = c.course_code
@@ -147,9 +147,9 @@ def get_research_projects_by_department(department_name):
 
     query = """
     SELECT rp.project_title, 
-           CONCAT('Prof. ', l.name) AS principal_investigator, 
+           CONCAT('Dr. ', l.name) AS principal_investigator, 
            rp.funding_sources, 
-           CONCAT('Prof. ', l.name, ' & Students: ', s1.name, ', ', s2.name) AS team_members, 
+           CONCAT('Dr. ', l.name, ' & Students: ', s1.name, ', ', s2.name) AS team_members, 
            rp.publications
     FROM research_projects rp
     JOIN lecturers l ON rp.principal_investigator = l.lecturer_id
@@ -163,3 +163,31 @@ def get_research_projects_by_department(department_name):
     
     conn.close()
     return results
+
+def get_bachelors_degrees():
+    """Retrieve all bachelor's degree programmes (BSc, BEng, BBA, BA)."""
+    query = """
+    SELECT name, degree_awarded, duration, course_requirements, enrolment_details
+    FROM programs
+    WHERE degree_awarded IN ('BSc', 'BEng', 'BBA', 'BA');
+    """
+    conn = get_db_connection()
+    with conn.cursor() as cursor:
+        cursor.execute(query)
+        result = cursor.fetchall()
+    conn.close()
+    return result
+
+def get_masters_degrees():
+    """Retrieve all master's degree programmes (MSc)."""
+    query = """
+    SELECT name, degree_awarded, duration, course_requirements, enrolment_details
+    FROM programs
+    WHERE degree_awarded = 'MSc';
+    """
+    conn = get_db_connection()
+    with conn.cursor() as cursor:
+        cursor.execute(query)
+        result = cursor.fetchall()
+    conn.close()
+    return result
