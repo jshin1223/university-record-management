@@ -212,11 +212,6 @@ VALUES
 (26, 'Benjamin Roberts', '2001-11-30', 'benjamin.roberts@liverpool.ac.uk', 'Electrical Engineering', 3, 85.9, 'In Progress', NULL, 42),
 (27, 'Logan Foster', '2000-10-30', 'logan.foster@liverpool.ac.uk', 'Electrical Engineering', 3, 86.3, 'In Progress', NULL, 43);
 
-UPDATE students s
-JOIN lecturers l ON s.program = l.department
-SET s.advisor_id = l.lecturer_id
-WHERE l.lecturer_id IS NOT NULL;
-
 -- Insert Programs
 INSERT INTO programs (name, degree_awarded, duration, course_requirements, enrolment_details)
 VALUES
