@@ -12,7 +12,6 @@ from queries import (
     get_bachelors_degrees, 
     get_masters_degrees
 )
-from collections import defaultdict
 
 def display_menu():
     """Displays the main menu."""
@@ -28,8 +27,8 @@ def display_menu():
     print("7. 📖  List courses taught by lecturers in a department")
     print("8. 🏢  Find staff members in a department")
     print("9. 🏆  List all research projects in a department")
-    print("10. 🎓  List all Bachelor's Degrees")
-    print("11. 🎓  List all Master's Degrees")
+    print("10. 🎓  List all Bachelor's degree programmes")
+    print("11. 🎓  List all Master's degree programmes")
     print("12. 🚪  Exit")
     print("*" * 50)
 
@@ -84,13 +83,13 @@ def main():
 
         elif choice == "10":
             bachelors_degrees = get_bachelors_degrees()
-            print_degree_results("Bachelor's Degree Programs", bachelors_degrees)
+            print_degree_results("Bachelor's Degree Programmes", bachelors_degrees)
 
         elif choice == "11":
             masters_degrees = get_masters_degrees()
-            print_degree_results("Master's Degree Programs", masters_degrees)
+            print_degree_results("Master's Degree Programmes", masters_degrees)
 
-        elif choice == "10":
+        elif choice == "12":
             print("\n🚪 Exiting... Goodbye! 👋\n")
             sys.exit(0)
 
@@ -193,7 +192,7 @@ def print_degree_results(title, data):
         for item in data:
             if isinstance(item, tuple) and len(item) == 5:
                 name, degree, duration, requirements, enrolment = item
-                print(f"✔️ Major: {degree}, {name}")
+                print(f"✔️ Programme: {degree}, {name}")
                 print(f"   Duration: {duration} ({enrolment})")
                 print(f"   Course Requirements: {requirements}")
                 print()
