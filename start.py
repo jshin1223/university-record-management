@@ -38,44 +38,21 @@ def tables_exist():
     existing_tables = inspector.get_table_names()
     return all(table in existing_tables for table in required_tables)
 
-def data_exists():
-    """Check if data already exists in key tables before populating."""
-    try:
-        conn = pymysql.connect(host=DB_HOST, user=DB_USER, password=DB_PASSWORD, database=DB_NAME, port=DB_PORT)
-        cursor = conn.cursor()
-
-        tables_to_check = ["students", "courses", "lecturers"]
-        for table in tables_to_check:
-            cursor.execute(f"SELECT COUNT(*) FROM {table}")
-            count = cursor.fetchone()[0]
-            if count > 0:
-                conn.close()
-                return True  # Data already exists
-
-        conn.close()
-        return False  # No data found
-    except pymysql.MySQLError as e:
-        print(f"⚠️ Error checking data: {e}")
-        return False
-
 def setup_database():
-    """Runs all setup steps only if necessary."""
+    """Ensures database setup and resets data every time."""
     if not database_exists():
         print("🛠️ Database not found. Creating database and tables...")
         subprocess.run([sys.executable, "src/models.py"], check=True)
-        subprocess.run([sys.executable, "src/populate_data.py"], check=True)
         print("✅ Database setup complete!")
-    elif not tables_exist():
-        print("🛠️ Tables missing. Running table creation...")
+
+    if not tables_exist():
+        print("🛠️ Tables missing. Creating tables...")
         subprocess.run([sys.executable, "src/models.py"], check=True)
-        subprocess.run([sys.executable, "src/populate_data.py"], check=True)
         print("✅ Tables setup complete!")
-    elif not data_exists():
-        print("📊 No data found. Populating database...")
-        subprocess.run([sys.executable, "src/populate_data.py"], check=True)
-        print("✅ Data population complete!")
-    else:
-        print("✅ Database, tables, and data already exist. Skipping setup.")
+
+    print("🔄 Resetting database data...")
+    subprocess.run([sys.executable, "src/populate_data.py"], check=True)
+    print("✅ Database reset and repopulated successfully!")
 
 def run_application():
     """Start the application."""
