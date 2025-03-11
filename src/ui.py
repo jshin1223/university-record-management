@@ -9,14 +9,16 @@ from queries import (
     get_staff_in_department,
     get_all_departments,
     get_research_projects_by_department,
+    get_bachelors_degrees, 
+    get_masters_degrees
 )
 from collections import defaultdict
 
 def display_menu():
     """Displays the main menu."""
-    print("\n" + "*" * 45)
+    print("\n" + "*" * 50)
     print("  🎓 University Record Management System")
-    print("*" * 45)
+    print("*" * 50)
     print("1. 🏫  List all students in a major")
     print("2. 📜  List all courses by department")
     print("3. 🔎  Find students in a course")
@@ -25,9 +27,11 @@ def display_menu():
     print("6. 🧑‍🏫  List all professors in a department")
     print("7. 📖  List courses taught by lecturers in a department")
     print("8. 🏢  Find staff members in a department")
-    print("9. 🔬  List all research projects in a department")  # ✅ NEW OPTION ADDED
-    print("10. 🚪  Exit")
-    print("*" * 45)
+    print("9. 🏆  List all research projects in a department")
+    print("10. 🎓  List all Bachelor's Degrees")
+    print("11. 🎓  List all Master's Degrees")
+    print("12. 🚪  Exit")
+    print("*" * 50)
 
 def main():
     """Main function to handle user input and execute queries."""
@@ -77,6 +81,14 @@ def main():
             department_name = input("\n🔹 Enter department name: ").strip()
             projects = get_research_projects_by_department(department_name)
             print_research_results(f"Research Projects in {department_name.upper()}", projects)
+
+        elif choice == "10":
+            bachelors_degrees = get_bachelors_degrees()
+            print_degree_results("Bachelor's Degree Programs", bachelors_degrees)
+
+        elif choice == "11":
+            masters_degrees = get_masters_degrees()
+            print_degree_results("Master's Degree Programs", masters_degrees)
 
         elif choice == "10":
             print("\n🚪 Exiting... Goodbye! 👋\n")
@@ -166,6 +178,27 @@ def print_lecturer_results(title, data):
             else:
                 print(f"✔️ {' '.join(map(str, item))}")  # Default handling for other queries
         
+    else:
+        print("❌ No results found.")
+
+    print("*" * 50)
+
+def print_degree_results(title, data):
+    """Formats and displays query results with structured output."""
+    print("\n" + "*" * 50)
+    print(f"📌 {title}:")
+    print("*" * 50)
+
+    if data:
+        for item in data:
+            if isinstance(item, tuple) and len(item) == 5:
+                name, degree, duration, requirements, enrolment = item
+                print(f"✔️ Major: {degree}, {name}")
+                print(f"   Duration: {duration} ({enrolment})")
+                print(f"   Course Requirements: {requirements}")
+                print()
+            else:
+                print(f"✔️ {' '.join(map(str, item))}")  
     else:
         print("❌ No results found.")
 

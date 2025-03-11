@@ -203,9 +203,6 @@ VALUES
 ('Marketing Management', 'MSc', 2, 'Digital Marketing, Branding', 'Full-time'),
 ('Environmental Science', 'MSc', 2, 'Climate Change, Renewable Energy', 'Full-time'),
 ('Medical Research', 'MSc', 2, 'Clinical Studies, Biomedical Research', 'Full-time'),
-('Law', 'LLB', 3, 'Corporate Law, International Law', 'Full-time'),
-('Architecture', 'BArch', 4, 'Structural Design, Urban Planning', 'Full-time'),
-('Education', 'BEd', 3, 'Teaching Pedagogy, Curriculum Development', 'Full-time');
 
 -- Insert Non-Academic Staff
 INSERT INTO non_academic_staff (staff_id, name, job_title, department, employment_type, contract_details, salary_information, emergency_contact)

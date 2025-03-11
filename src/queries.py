@@ -163,3 +163,31 @@ def get_research_projects_by_department(department_name):
     
     conn.close()
     return results
+
+def get_bachelors_degrees():
+    """Retrieve all bachelor's degree programs (BSc, BEng, BBA, BA)."""
+    query = """
+    SELECT name, degree_awarded, duration, course_requirements, enrolment_details
+    FROM programs
+    WHERE degree_awarded IN ('BSc', 'BEng', 'BBA', 'BA');
+    """
+    conn = get_db_connection()
+    with conn.cursor() as cursor:
+        cursor.execute(query)
+        result = cursor.fetchall()
+    conn.close()
+    return result
+
+def get_masters_degrees():
+    """Retrieve all master's degree programs (MSc)."""
+    query = """
+    SELECT name, degree_awarded, duration, course_requirements, enrolment_details
+    FROM programs
+    WHERE degree_awarded = 'MSc';
+    """
+    conn = get_db_connection()
+    with conn.cursor() as cursor:
+        cursor.execute(query)
+        result = cursor.fetchall()
+    conn.close()
+    return result
