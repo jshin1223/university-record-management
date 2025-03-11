@@ -22,3 +22,5 @@ SELECT COUNT(*) FROM non_academic_staff;
 SELECT student_id FROM students;
 SELECT course_code FROM courses;
 SELECT student_id FROM students ORDER BY student_id;
+
+SHOW TABLES LIKE 'programs';
