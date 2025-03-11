@@ -4,10 +4,11 @@ from queries import (
     get_courses_by_department,
     get_professors_in_department,
     get_students_in_course,
-    get_courses_by_lecturer_in_department,
+    get_courses_taught_by_lecturers,
     get_top_students,
     get_staff_in_department,
     get_all_departments,
+    get_research_projects_by_department,
 )
 from collections import defaultdict
 
@@ -24,7 +25,8 @@ def display_menu():
     print("6. 🧑‍🏫  List all professors in a department")
     print("7. 📖  List courses taught by lecturers in a department")
     print("8. 🏢  Find staff members in a department")
-    print("9. 🚪  Exit")
+    print("9. 🔬  List all research projects in a department")  # ✅ NEW OPTION ADDED
+    print("10. 🚪  Exit")
     print("*" * 45)
 
 def main():
@@ -59,19 +61,24 @@ def main():
         elif choice == "6":
             department_name = input("\n🔹 Enter department name: ").strip()
             professors = get_professors_in_department(department_name)
-            print_results(f"Professors in {department_name.upper()}", professors)
+            print_lecturer_results(f"Professors in {department_name.upper()}", professors)
 
         elif choice == "7":
             department_name = input("\n🔹 Enter department name: ").strip()
-            courses = get_courses_by_lecturer_in_department(department_name)
-            print_results_grouped(f"Courses in {department_name.upper()}", courses)
+            courses = get_courses_taught_by_lecturers(department_name)
+            print_lecturer_results(f"Courses in {department_name.upper()}", courses)
 
         elif choice == "8":
             department_name = input("\n🔹 Enter department name: ").strip()
             staff = get_staff_in_department(department_name)
             print_results(f"Staff in {department_name.upper()}", staff)
 
-        elif choice == "9":
+        elif choice == "9":  # ✅ NEW FUNCTION FOR RESEARCH PROJECTS
+            department_name = input("\n🔹 Enter department name: ").strip()
+            projects = get_research_projects_by_department(department_name)
+            print_research_results(f"Research Projects in {department_name.upper()}", projects)
+
+        elif choice == "10":
             print("\n🚪 Exiting... Goodbye! 👋\n")
             sys.exit(0)
 
@@ -114,28 +121,55 @@ def print_results(title, data):
 
     print("*" * 40)
 
-def print_results_grouped (title, data):
-    """Formats and displays query results grouped by lecturer."""
-    print("\n" + "*" * 40)
+def print_research_results(title, data):
+    """Formats and displays query results with structured output."""
+    print("\n" + "*" * 50)
     print(f"📌 {title}:")
-    print("*" * 40)
+    print("*" * 50)
 
     if data:
-        lecturer_courses = defaultdict(list)
-
-        # Group courses under each lecturer
-        for course, lecturer in data:
-            lecturer_courses[lecturer].append(course)
-
-        # Print lecturer and their courses
-        for lecturer, courses in lecturer_courses.items():
-            print(f"\n👨‍🏫 Lecturer: {lecturer}")
-            for course in courses:
-                print(f"   - {course}")
+        for item in data:
+            if isinstance(item, tuple) and len(item) == 5:  # Research projects format
+                project_title, principal_investigator, funding_sources, team_members, publications = item
+                print(f"✔️ Project Title: {project_title}")
+                print(f"   Principal Investigator: {principal_investigator}")
+                print(f"   Funding Sources: {funding_sources}")
+                print(f"   Team Members: {team_members}")  # Prof. + Students correctly formatted
+                print(f"   Publications: {publications}\n")
+            else:
+                print(f"✔️ {' '.join(map(str, item))}")  # Default handling for other queries
+        
     else:
         print("❌ No results found.")
 
-    print("\n" + "*" * 40)
+    print("*" * 50)
+
+def print_lecturer_results(title, data):
+    """Formats and displays query results with structured output."""
+    print("\n" + "*" * 50)
+    print(f"📌 {title}:")
+    print("*" * 50)
+
+    if data:
+        for item in data:
+            if isinstance(item, tuple) and len(item) == 3:  # Professors List
+                professor_name, qualifications, expertise = item
+                print(f"✔️ {professor_name}")
+                print(f"   Academic Qualifications: {qualifications}")
+                print(f"   Expertise: {expertise}\n")
+
+            elif isinstance(item, tuple) and len(item) == 2:  # Courses Taught by Lecturers
+                lecturer_name, courses = item
+                print(f"👨‍🏫 {lecturer_name}")
+                print(f"   Courses: {courses}\n")
+
+            else:
+                print(f"✔️ {' '.join(map(str, item))}")  # Default handling for other queries
+        
+    else:
+        print("❌ No results found.")
+
+    print("*" * 50)
 
 if __name__ == "__main__":
     main()
