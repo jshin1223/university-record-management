@@ -168,48 +168,20 @@ JOIN courses c ON l.department = c.department
 ORDER BY RAND()
 LIMIT 60;
 
--- Insert Research Projects
+-- Insert Research Projects dynamically based on lecturers and students
 INSERT INTO research_projects (project_title, principal_investigator, funding_sources, team_members, publications, outcomes)
-VALUES
-('AI in Healthcare', 1, 'UK Research Grant', 'Dr. Alice Johnson, Student 1, Student 2', 'AI Journal 2024', 'Developed AI-based diagnosis system'),
-('Quantum Computing for Security', 3, 'European Quantum Research Fund', 'Dr. Chris Evans, Student 3, Student 4', 'Quantum Journal 2024', 'New encryption model'),
-('Neural Networks for Image Recognition', 1, 'AI Research UK', 'Dr. Alice Johnson, Student 5, Student 6', 'Computer Vision 2024', 'Optimized deep learning models'),
-('Bayesian Models in Statistics', 2, 'Mathematical Society Grant', 'Dr. Bob Smith, Student 7, Student 8', 'Statistics Journal 2023', 'Improved probability models'),
-('DNA Sequencing Technologies', 4, 'Genome Research Fund', 'Dr. Diana Ford, Student 9, Student 10', 'Genetics Research 2024', 'Advanced sequencing techniques'),
-('Renewable Energy and Smart Grids', 9, 'EU Renewable Energy Grant', 'Dr. Isaac Lee, Student 11, Student 12', 'Energy Journal 2023', 'Smart grid optimization'),
-('Deep Learning for Robotics', 8, 'Industrial Robotics Fund', 'Dr. Helen King, Student 13, Student 14', 'Robotics Review 2023', 'Improved robotic automation'),
-('Astrophysics and Black Holes', 3, 'NASA Research Grant', 'Dr. Chris Evans, Student 15, Student 16', 'Astrophysics Journal 2024', 'New findings on black holes'),
-('Organic Chemistry in Medicine', 5, 'Pharmaceutical Research Fund', 'Dr. Edward Harris, Student 17, Student 18', 'Chemistry Science 2024', 'New drug formulations'),
-('Psychological Impact of Social Media', 7, 'Mental Health Research Grant', 'Dr. George White, Student 19, Student 20', 'Psychology Review 2023', 'Effects of social media on behavior'),
-('AI-powered Business Strategies', 6, 'Finance & AI Research Fund', 'Dr. Fiona Green, Student 21, Student 22', 'Business Strategy 2024', 'AI for financial market predictions'),
-('Structural Integrity in Earthquake Zones', 20, 'Civil Engineering Fund', 'Dr. Daniel Wilson, Student 23, Student 24', 'Engineering Journal 2024', 'Improved building safety techniques'),
-('Cybersecurity for IoT Devices', 12, 'Cybersecurity Research UK', 'Dr. Mark Spencer, Student 25, Student 26', 'Cybersecurity Journal 2023', 'IoT vulnerability solutions'),
-('Medical Imaging with AI', 1, 'Healthcare AI Fund', 'Dr. Alice Johnson, Student 27, Student 28', 'AI & Healthcare 2024', 'AI models for X-ray analysis'),
-('AI in Financial Fraud Detection', 6, 'UK Finance Research Fund', 'Dr. Fiona Green, Student 29, Student 30', 'Finance Journal 2023', 'Machine learning for fraud prevention'),
-('Climate Change and Rising Sea Levels', 16, 'Environmental Research Grant', 'Dr. Emily Carter, Student 31, Student 32', 'Environmental Science 2024', 'Impact study on coastal cities'),
-('Renewable Battery Technologies', 9, 'Green Energy Research Fund', 'Dr. Isaac Lee, Student 33, Student 34', 'Renewable Energy 2023', 'Improved battery efficiency'),
-('Smart Agriculture and AI', 4, 'Agricultural Research Grant', 'Dr. Diana Ford, Student 35, Student 36', 'Agricultural Tech 2023', 'AI applications in crop management'),
-('AI and Human Behavior Analysis', 7, 'Behavioral Science Fund', 'Dr. George White, Student 37, Student 38', 'Cognitive Science 2024', 'AI modeling of human interactions'),
-('Big Data Analytics in Education', 10, 'Education Research UK', 'Dr. Sarah Adams, Student 39, Student 40', 'Education Analytics 2023', 'Data-driven teaching strategies'),
-('Genetic Research on Rare Diseases', 4, 'Genome Institute Fund', 'Dr. Diana Ford, Student 41, Student 42', 'Genetics Research 2024', 'Identified new disease markers'),
-('3D Printing in Construction', 20, 'Engineering Innovation Grant', 'Dr. Daniel Wilson, Student 43, Student 44', 'Construction Technology 2024', '3D printed low-cost housing'),
-('AI for Personalized Medicine', 1, 'Biomedical AI Fund', 'Dr. Alice Johnson, Student 45, Student 46', 'Biomedical Journal 2024', 'AI-driven patient treatment plans'),
-('Human-Robot Interaction', 8, 'Advanced Robotics Fund', 'Dr. Helen King, Student 47, Student 48', 'Human-Robot Studies 2024', 'Improved robot communication models'),
-('AI in Legal Decision Making', 18, 'Legal AI Research Fund', 'Dr. Thomas Carter, Student 49, Student 50', 'Law & AI Journal 2023', 'AI assistance for legal judgments'),
-('Electric Vehicles and Smart Charging', 9, 'Automobile Research Grant', 'Dr. Isaac Lee, Student 51, Student 52', 'EV Research 2024', 'Optimized smart charging networks'),
-('Nanotechnology in Drug Delivery', 5, 'Pharmaceutical Innovations Fund', 'Dr. Edward Harris, Student 53, Student 54', 'Medical Science 2024', 'Nano-drug delivery techniques'),
-('AI for Autonomous Vehicles', 8, 'Autonomous Driving Fund', 'Dr. Helen King, Student 55, Student 56', 'Autonomous Tech 2023', 'AI models for self-driving cars'),
-('AI Ethics and Bias Mitigation', 1, 'Ethical AI Research Fund', 'Dr. Alice Johnson, Student 57, Student 58', 'AI & Ethics 2024', 'Bias-reduction techniques in AI'),
-('Predictive Analytics in Healthcare', 6, 'Medical Data Science Fund', 'Dr. Fiona Green, Student 59, Student 60', 'Health Analytics 2024', 'Predicting disease outbreaks'),
-('Blockchain for Secure Transactions', 6, 'Blockchain Innovation Fund', 'Dr. Fiona Green, Student 61, Student 62', 'Blockchain Journal 2023', 'Secure digital transactions'),
-('Cognitive Neuroscience and AI', 7, 'Brain Science Fund', 'Dr. George White, Student 63, Student 64', 'Neuroscience Research 2024', 'Neural modeling advancements'),
-('Smart Cities and IoT', 9, 'Urban Development Grant', 'Dr. Isaac Lee, Student 65, Student 66', 'Smart City Journal 2023', 'IoT-based city management solutions'),
-('Wearable Health Tech', 1, 'Medical IoT Research Fund', 'Dr. Alice Johnson, Student 67, Student 68', 'Wearable Tech 2024', 'Monitoring vitals through smartwatches'),
-('Quantum Sensors for Space Exploration', 3, 'NASA Space Tech Fund', 'Dr. Chris Evans, Student 69, Student 70', 'Space Science 2023', 'High-precision space navigation'),
-('AI in Sports Analytics', 10, 'Sports Data Research Grant', 'Dr. Sarah Adams, Student 71, Student 72', 'Sports Science 2024', 'AI-driven performance tracking'),
-('Virtual Reality for Education', 10, 'EdTech Innovation Fund', 'Dr. Sarah Adams, Student 73, Student 74', 'Education Tech 2024', 'VR-based classroom experiences'),
-('AI in Creative Arts', 10, 'Digital Media Research Fund', 'Dr. Sarah Adams, Student 75, Student 76', 'Art & AI Journal 2024', 'AI-assisted digital art creation'),
-('AI and Mental Health Diagnosis', 7, 'Psychiatric AI Research Fund', 'Dr. George White, Student 77, Student 78', 'Mental Health Science 2024', 'AI-based mental health screening');
+SELECT 
+    CONCAT(l.expertise, ' Research #', ROW_NUMBER() OVER (PARTITION BY l.lecturer_id ORDER BY RAND())), 
+    l.lecturer_id,                     
+    'University Research Grant',        
+    CONCAT(l.name, ', Student ', s1.student_id, ', Student ', s2.student_id), 
+    CONCAT(l.expertise, ' Journal'), 
+    CONCAT('Innovative research in ', l.expertise)  
+FROM lecturers l
+JOIN students s1 ON s1.program = l.department  
+JOIN students s2 ON s2.program = l.department AND s1.student_id <> s2.student_id  
+ORDER BY RAND()
+LIMIT 30;  -- Adjust the number of projects as needed
 
 -- Insert Programs
 INSERT INTO programs (name, degree_awarded, duration, course_requirements, enrolment_details)
