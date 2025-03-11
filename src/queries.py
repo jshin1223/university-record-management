@@ -13,16 +13,21 @@ def get_students_in_major(major_name):
     return result
 
 def get_professors_in_department(department_name):
-    """Retrieve all professors in the same department."""
-    query = """
-    SELECT name FROM lecturers WHERE department = %s;
-    """
+    """Retrieve all professors in a specific department with 'Prof.' prefix."""
     conn = get_db_connection()
-    with conn.cursor() as cursor:
-        cursor.execute(query, (department_name,))
-        result = cursor.fetchall()
+    cursor = conn.cursor()
+
+    query = """
+    SELECT CONCAT('Prof. ', name) AS professor_name, academic_qualifications, expertise
+    FROM lecturers
+    WHERE department = %s;
+    """
+    
+    cursor.execute(query, (department_name,))
+    results = cursor.fetchall()
+    
     conn.close()
-    return result
+    return results
 
 def get_students_in_course(course_name):
     """
@@ -48,29 +53,25 @@ def get_students_in_course(course_name):
     conn.close()
     return result
 
-def get_courses_by_lecturer_in_department(department_name):
-    """
-    List all courses taught by lecturers in a specific department.
-    
-    Args:
-        department_name (str): The department name.
-    
-    Returns:
-        list: A list of tuples (course_name, lecturer_name).
-    """
-    query = """
-    SELECT c.name, l.name AS lecturer
-    FROM courses c
-    JOIN lecturer_courses lc ON c.course_code = lc.course_id
-    JOIN lecturers l ON lc.lecturer_id = l.lecturer_id
-    WHERE c.department = %s;
-    """
+def get_courses_taught_by_lecturers(department_name):
+    """Retrieve courses taught by lecturers in a department with 'Prof.' prefix."""
     conn = get_db_connection()
-    with conn.cursor() as cursor:
-        cursor.execute(query, (department_name,))
-        result = cursor.fetchall()
+    cursor = conn.cursor()
+
+    query = """
+    SELECT CONCAT('Prof. ', l.name) AS lecturer_name, GROUP_CONCAT(c.name SEPARATOR ', ') AS courses
+    FROM lecturers l
+    JOIN lecturer_courses lc ON l.lecturer_id = lc.lecturer_id
+    JOIN courses c ON lc.course_id = c.course_code
+    WHERE l.department = %s
+    GROUP BY l.lecturer_id, l.name;
+    """
+    
+    cursor.execute(query, (department_name,))
+    results = cursor.fetchall()
+    
     conn.close()
-    return result
+    return results
 
 def get_top_students():
     """
@@ -139,3 +140,26 @@ def get_courses_by_department(department_name):
     conn.close()
     return result
 
+def get_research_projects_by_department(department_name):
+    """Retrieve all research projects in a specific department with properly formatted names."""
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    query = """
+    SELECT rp.project_title, 
+           CONCAT('Prof. ', l.name) AS principal_investigator, 
+           rp.funding_sources, 
+           CONCAT('Prof. ', l.name, ' & Students: ', s1.name, ', ', s2.name) AS team_members, 
+           rp.publications
+    FROM research_projects rp
+    JOIN lecturers l ON rp.principal_investigator = l.lecturer_id
+    LEFT JOIN students s1 ON SUBSTRING_INDEX(SUBSTRING_INDEX(rp.team_members, ', ', -2), ', ', 1) = CONCAT('Student ', s1.student_id)
+    LEFT JOIN students s2 ON SUBSTRING_INDEX(rp.team_members, ', ', -1) = CONCAT('Student ', s2.student_id)
+    WHERE l.department = %s;
+    """
+    
+    cursor.execute(query, (department_name,))
+    results = cursor.fetchall()
+    
+    conn.close()
+    return results
