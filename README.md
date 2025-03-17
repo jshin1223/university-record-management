@@ -14,7 +14,7 @@
 
 <a id="project-description"></a>
 ## 📚 Project Description
-The **University Record Management System** is a Python-based command-line application designed to manage university records, including:
+The **University Record Management System** is a Python-based application designed to manage university records, including:
 
 - **Student Records**
 - **Lecturer Records**
@@ -23,7 +23,7 @@ The **University Record Management System** is a Python-based command-line appli
 - **Research Projects**
 - **Non-Academic Staff**
 
-The system enables users to retrieve university records through a user-friendly menu-based interface.
+The system enables users to retrieve university records through a user-friendly **Command-Line Interface (CLI)** or an interactive **Graphical User Interface (GUI)**.
 
 <a id="installation"></a>
 ## ⚙️ Installation
@@ -45,7 +45,7 @@ Ensure you have the following installed on your system:
    ```sh
    python install.py
    ```
-   This will install all required dependencies:
+   This will install all required dependencies.
 
 <a id="execution-and-usage"></a>
 ## 🚀 Execution and Usage
@@ -58,23 +58,60 @@ python start.py
 This command:
 1. **Creates the database schema**.
 2. **Populates the database with data**.
-3. **Launches the application**.
+3. **Prompts the user to select CLI or GUI mode**.
+4. **Launches the application**.
 
-### Menu Options
-When the application starts, you will see the following menu:
+### Choose CLI or GUI Mode
+When running `start.py`, you will see:
+```
+==================================================
+🎓  WELCOME TO THE UNIVERSITY RECORD MANAGEMENT SYSTEM
+==================================================
+
+🔹 Select how you want to run the program:
+[1]  Command Line Interface (CLI)
+[2]  Graphical User Interface (GUI)
+[0]  Exit
+
+👉 Enter your choice (1, 2, or 0 to exit): 
+```
+- **Enter `1`** to run in **Command Line Interface (CLI)**.
+- **Enter `2`** to run in **Graphical User Interface (GUI)**.
+- **Enter `0`** to exit.
+
+---
+
+### **📜 Menu Options (CLI Mode)**
+When running in **CLI Mode**, the menu displays:
 ```
 ************************************
   🎓 University Record Management System
 ************************************
-1. 🔍 Find students in a course
-2. 📚 List courses taught by lecturers in a department
-3. 🏆 List students with an average grade above 70%
-4. 👨‍🏫 Find staff members in a department
-5. 🚪 Exit
+1. 🏫  List all students in a major
+2. 📜  List all courses by department
+3. 🔎  Find students in a course
+4. 🥇  List students with an average grade above 70%
+5. 🏛️  List all departments
+6. 🧑‍🏫  List all professors in a department
+7. 📖  List courses taught by lecturers in a department
+8. 🏢  Find staff members in a department
+9. 🏆  List all research projects in a department
+10. 🎓  List all Bachelor's degree programs
+11. 🎓  List all Master's degree programs
+12. 🚪  Exit
 ************************************
 Enter your choice:
 ```
 Choose an option by entering the corresponding number.
+
+---
+
+### **🖥️ GUI Mode**
+If **GUI mode** is selected, a **graphical interface** appears with:
+- **Sidebar Menu** for selecting queries.
+- **Beautifully formatted results** with larger fonts.
+- **Scrollable results** for better visibility.
+- **Interactive pop-ups** with larger fonts for prompts.
 
 <a id="running-unit-tests"></a>
 ## 🧪 Running Unit Tests
@@ -104,6 +141,7 @@ The project was built using:
 - **MySQL** (Relational Database Management System)
 - **PyMySQL** (Python MySQL connector)
 - **SQLAlchemy** (ORM for database models)
+- **Tkinter** (for GUI development)
 
 <a id="current-features"></a>
 ## 🎯 Current Features
@@ -115,6 +153,7 @@ The University Record Management System supports:
 - **Department Records:** Retrieve details about university departments.
 - **Research Projects:** View research projects supervised by lecturers.
 - **Non-Academic Staff Management:** Retrieve non-academic staff details.
+- **Graphical User Interface (GUI):** Run the system with an interactive GUI.
 
 <a id="contributors"></a>
 ## 👥 Contributors
