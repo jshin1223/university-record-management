@@ -110,6 +110,14 @@ VALUES
 (44, 'Derek Anderson', 'Electrical Engineering', 'PhD Signal Processing', 'Wireless Communications', 3, '5G Technology', 'Signal Processing Journal 2023'),
 (45, 'Melissa Young', 'Electrical Engineering', 'PhD Electronics', 'Semiconductors', 3, 'Microchip Research', 'Electronics Journal 2024');
 
+-- 🏛️ History (5)
+INSERT INTO lecturers (lecturer_id, name, department, academic_qualifications, expertise, course_load, research_interests, publications) VALUES
+(46, 'Richard Hamilton', 'History', 'PhD Medieval Studies', 'European Medieval History', 3, 'Feudalism, Chivalry', 'Medieval History Journal 2023'),
+(47, 'Laura Bennett', 'History', 'PhD Modern History', '19th & 20th Century History', 3, 'Industrial Revolution, World Wars', 'Modern History Review 2024'),
+(48, 'William Carter', 'History', 'PhD Ancient Civilizations', 'Greek & Roman History', 3, 'Classical Literature, Political Systems', 'Ancient History Journal 2023'),
+(49, 'Emily Johnson', 'History', 'PhD Social History', 'Cultural and Gender History', 3, 'Women’s Rights Movements, Social Changes', 'Social History Journal 2024'),
+(50, 'Thomas Green', 'History', 'PhD Military History', 'Warfare and Strategy', 3, 'Napoleonic Wars, Cold War Tactics', 'Military History Journal 2023');
+
 -- Insert Courses for all departments
 INSERT INTO courses (course_code, name, description, department, level, credits, prerequisites, schedule, materials)
 VALUES
@@ -171,46 +179,122 @@ VALUES
 (1, 'John Doe', '2001-05-15', 'john.doe@liverpool.ac.uk', 'Computer Science', 4, 85.5, 'In Progress', NULL, 1),
 (2, 'Ethan Walker', '2001-05-02', 'ethan.walker@liverpool.ac.uk', 'Computer Science', 3, 82.4, 'In Progress', NULL, 2),
 (3, 'Lucas Green', '2000-05-08', 'lucas.green@liverpool.ac.uk', 'Computer Science', 4, 79.8, 'In Progress', NULL, 3),
+(4, 'Emma Brown', '2001-09-12', 'emma.brown@liverpool.ac.uk', 'Computer Science', 3, 88.3, 'In Progress', NULL, 4),
+(5, 'Ryan Scott', '2002-07-19', 'ryan.scott@liverpool.ac.uk', 'Computer Science', 2, 75.6, 'In Progress', NULL, 5),
+(6, 'Sophia Wilson', '2003-06-23', 'sophia.wilson@liverpool.ac.uk', 'Computer Science', 1, 90.2, 'In Progress', NULL, 1),
+(7, 'Nathan Hall', '2001-10-05', 'nathan.hall@liverpool.ac.uk', 'Computer Science', 4, 83.9, 'In Progress', NULL, 2),
+(8, 'Jessica White', '2000-12-08', 'jessica.white@liverpool.ac.uk', 'Computer Science', 3, 86.7, 'In Progress', NULL, 3),
+(9, 'Michael Young', '2002-03-15', 'michael.young@liverpool.ac.uk', 'Computer Science', 2, 77.5, 'In Progress', NULL, 4),
+(10, 'David Lee', '2001-01-11', 'david.lee@liverpool.ac.uk', 'Computer Science', 4, 92.1, 'In Progress', NULL, 5),
 
 -- 🧮 Mathematics Students (Advisors: 6-10)
-(4, 'Jane Smith', '2002-08-22', 'jane.smith@liverpool.ac.uk', 'Mathematics', 3, 72.0, 'In Progress', NULL, 6),
-(5, 'Sophia Evans', '2000-08-19', 'sophia.evans@liverpool.ac.uk', 'Mathematics', 4, 78.8, 'In Progress', NULL, 7),
-(6, 'Mia Cooper', '2002-07-21', 'mia.cooper@liverpool.ac.uk', 'Mathematics', 3, 74.3, 'In Progress', NULL, 8),
+(11, 'Jane Smith', '2002-08-22', 'jane.smith@liverpool.ac.uk', 'Mathematics', 3, 72.0, 'In Progress', NULL, 6),
+(12, 'Sophia Evans', '2000-08-19', 'sophia.evans@liverpool.ac.uk', 'Mathematics', 4, 78.8, 'In Progress', NULL, 7),
+(13, 'Mia Cooper', '2002-07-21', 'mia.cooper@liverpool.ac.uk', 'Mathematics', 3, 74.3, 'In Progress', NULL, 8),
+(14, 'Daniel Adams', '2001-06-11', 'daniel.adams@liverpool.ac.uk', 'Mathematics', 3, 80.5, 'In Progress', NULL, 9),
+(15, 'Grace King', '2000-09-28', 'grace.king@liverpool.ac.uk', 'Mathematics', 4, 85.1, 'In Progress', NULL, 10),
+(16, 'Noah Clark', '2003-02-17', 'noah.clark@liverpool.ac.uk', 'Mathematics', 1, 76.9, 'In Progress', NULL, 6),
+(17, 'Zoe Turner', '2002-01-30', 'zoe.turner@liverpool.ac.uk', 'Mathematics', 2, 88.4, 'In Progress', NULL, 7),
+(18, 'Matthew Roberts', '2001-05-10', 'matthew.roberts@liverpool.ac.uk', 'Mathematics', 4, 79.2, 'In Progress', NULL, 8),
+(19, 'Rachel Scott', '2000-11-14', 'rachel.scott@liverpool.ac.uk', 'Mathematics', 3, 83.6, 'In Progress', NULL, 9),
+(20, 'James Lewis', '2003-04-25', 'james.lewis@liverpool.ac.uk', 'Mathematics', 2, 75.3, 'In Progress', NULL, 10),
 
 -- 🔬 Physics Students (Advisors: 11-15)
-(7, 'Michael Brown', '2000-11-10', 'michael.brown@liverpool.ac.uk', 'Physics', 2, 78.3, 'In Progress', NULL, 11),
-(8, 'William King', '2002-10-28', 'william.king@liverpool.ac.uk', 'Physics', 2, 80.1, 'In Progress', NULL, 12),
-(9, 'Mason Wright', '2001-09-17', 'mason.wright@liverpool.ac.uk', 'Physics', 2, 81.9, 'In Progress', NULL, 13),
+(21, 'Michael Brown', '2000-11-10', 'michael.brown@liverpool.ac.uk', 'Physics', 2, 78.3, 'In Progress', NULL, 11),
+(22, 'William King', '2002-10-28', 'william.king@liverpool.ac.uk', 'Physics', 2, 80.1, 'In Progress', NULL, 12),
+(23, 'Mason Wright', '2001-09-17', 'mason.wright@liverpool.ac.uk', 'Physics', 2, 81.9, 'In Progress', NULL, 13),
+(24, 'Charlotte Harris', '2003-06-12', 'charlotte.harris@liverpool.ac.uk', 'Physics', 1, 84.5, 'In Progress', NULL, 14),
+(25, 'Benjamin Lee', '2000-03-22', 'benjamin.lee@liverpool.ac.uk', 'Physics', 4, 87.7, 'In Progress', NULL, 15),
+(26, 'Samantha Hall', '2001-07-09', 'samantha.hall@liverpool.ac.uk', 'Physics', 3, 79.8, 'In Progress', NULL, 11),
+(27, 'Lily Mitchell', '2002-08-14', 'lily.mitchell@liverpool.ac.uk', 'Physics', 2, 82.9, 'In Progress', NULL, 12),
+(28, 'Ethan Carter', '2000-10-05', 'ethan.carter@liverpool.ac.uk', 'Physics', 4, 90.3, 'In Progress', NULL, 13),
+(29, 'Daniel Wright', '2003-04-20', 'daniel.wright@liverpool.ac.uk', 'Physics', 1, 73.5, 'In Progress', NULL, 14),
+(30, 'Hannah White', '2001-12-11', 'hannah.white@liverpool.ac.uk', 'Physics', 3, 85.9, 'In Progress', NULL, 15),
 
 -- 🧬 Biology Students (Advisors: 16-20)
-(10, 'Emily Johnson', '2003-02-18', 'emily.johnson@liverpool.ac.uk', 'Biology', 1, 91.2, 'In Progress', NULL, 16),
-(11, 'Chloe Scott', '2003-03-07', 'chloe.scott@liverpool.ac.uk', 'Biology', 1, 92.7, 'In Progress', NULL, 17),
-(12, 'Lily Young', '2003-01-12', 'lily.young@liverpool.ac.uk', 'Biology', 1, 94.2, 'In Progress', NULL, 18),
+(31, 'Olivia Adams', '2002-05-04', 'olivia.adams@liverpool.ac.uk', 'Biology', 2, 88.1, 'In Progress', NULL, 16),
+(32, 'Nathan Green', '2001-11-25', 'nathan.green@liverpool.ac.uk', 'Biology', 3, 83.7, 'In Progress', NULL, 17),
+(33, 'Sophia Hall', '2003-02-19', 'sophia.hall@liverpool.ac.uk', 'Biology', 1, 92.5, 'In Progress', NULL, 18),
+(34, 'James Scott', '2000-06-15', 'james.scott@liverpool.ac.uk', 'Biology', 4, 75.4, 'In Progress', NULL, 19),
+(35, 'Ella King', '2002-09-30', 'ella.king@liverpool.ac.uk', 'Biology', 2, 79.3, 'In Progress', NULL, 20),
+(36, 'Benjamin Harris', '2001-03-12', 'benjamin.harris@liverpool.ac.uk', 'Biology', 3, 81.9, 'In Progress', NULL, 16),
+(37, 'Rachel Lee', '2000-12-05', 'rachel.lee@liverpool.ac.uk', 'Biology', 4, 77.8, 'In Progress', NULL, 17),
+(38, 'Liam Turner', '2003-07-10', 'liam.turner@liverpool.ac.uk', 'Biology', 1, 93.2, 'In Progress', NULL, 18),
+(39, 'Hannah Evans', '2002-08-14', 'hannah.evans@liverpool.ac.uk', 'Biology', 2, 85.7, 'In Progress', NULL, 19),
+(40, 'Zoe Carter', '2001-01-26', 'zoe.carter@liverpool.ac.uk', 'Biology', 3, 78.5, 'In Progress', NULL, 20),
 
 -- 🧪 Chemistry Students (Advisors: 21-25)
-(13, 'David Wilson', '2001-07-30', 'david.wilson@liverpool.ac.uk', 'Chemistry', 3, 68.5, 'In Progress', NULL, 21),
-(14, 'Matthew Adams', '2001-06-14', 'matthew.adams@liverpool.ac.uk', 'Chemistry', 3, 70.9, 'In Progress', NULL, 22),
-(15, 'Noah Perez', '2000-12-24', 'noah.perez@liverpool.ac.uk', 'Chemistry', 3, 68.7, 'In Progress', NULL, 23),
+(41, 'Michael Foster', '2000-10-28', 'michael.foster@liverpool.ac.uk', 'Chemistry', 4, 81.2, 'In Progress', NULL, 21),
+(42, 'Emily White', '2002-03-07', 'emily.white@liverpool.ac.uk', 'Chemistry', 2, 76.9, 'In Progress', NULL, 22),
+(43, 'Lucas Reed', '2003-06-11', 'lucas.reed@liverpool.ac.uk', 'Chemistry', 1, 89.5, 'In Progress', NULL, 23),
+(44, 'Sophia Walker', '2001-09-15', 'sophia.walker@liverpool.ac.uk', 'Chemistry', 3, 84.7, 'In Progress', NULL, 24),
+(45, 'Ryan Lewis', '2000-12-23', 'ryan.lewis@liverpool.ac.uk', 'Chemistry', 4, 78.4, 'In Progress', NULL, 25),
+(46, 'Chloe Adams', '2002-07-30', 'chloe.adams@liverpool.ac.uk', 'Chemistry', 2, 74.6, 'In Progress', NULL, 21),
+(47, 'Nathan Scott', '2003-04-18', 'nathan.scott@liverpool.ac.uk', 'Chemistry', 1, 92.1, 'In Progress', NULL, 22),
+(48, 'Daniel King', '2001-05-26', 'daniel.king@liverpool.ac.uk', 'Chemistry', 3, 79.9, 'In Progress', NULL, 23),
+(49, 'Mia Carter', '2002-08-05', 'mia.carter@liverpool.ac.uk', 'Chemistry', 2, 85.3, 'In Progress', NULL, 24),
+(50, 'Charlotte Mitchell', '2000-11-19', 'charlotte.mitchell@liverpool.ac.uk', 'Chemistry', 4, 87.6, 'In Progress', NULL, 25),
 
 -- 💼 Business Students (Advisors: 26-30)
-(16, 'Sarah Martinez', '2002-04-25', 'sarah.martinez@liverpool.ac.uk', 'Business', 2, 76.1, 'In Progress', NULL, 26),
-(17, 'Ava Baker', '2002-01-22', 'ava.baker@liverpool.ac.uk', 'Business', 2, 75.3, 'In Progress', NULL, 27),
-(18, 'Ella Murphy', '2002-03-29', 'ella.murphy@liverpool.ac.uk', 'Business', 2, 76.4, 'In Progress', NULL, 28),
+(51, 'Jacob Young', '2003-01-07', 'jacob.young@liverpool.ac.uk', 'Business', 1, 91.4, 'In Progress', NULL, 26),
+(52, 'Lily Scott', '2002-06-25', 'lily.scott@liverpool.ac.uk', 'Business', 2, 80.6, 'In Progress', NULL, 27),
+(53, 'Benjamin Turner', '2001-09-18', 'benjamin.turner@liverpool.ac.uk', 'Business', 3, 79.8, 'In Progress', NULL, 28),
+(54, 'Ella Foster', '2000-12-15', 'ella.foster@liverpool.ac.uk', 'Business', 4, 77.2, 'In Progress', NULL, 29),
+(55, 'Michael Lewis', '2003-03-27', 'michael.lewis@liverpool.ac.uk', 'Business', 1, 89.1, 'In Progress', NULL, 30),
+(56, 'Zoe Harris', '2002-08-22', 'zoe.harris@liverpool.ac.uk', 'Business', 2, 76.5, 'In Progress', NULL, 26),
+(57, 'Daniel Evans', '2001-05-10', 'daniel.evans@liverpool.ac.uk', 'Business', 3, 83.9, 'In Progress', NULL, 27),
+(58, 'Olivia Walker', '2000-10-05', 'olivia.walker@liverpool.ac.uk', 'Business', 4, 78.5, 'In Progress', NULL, 28),
+(59, 'Hannah Adams', '2003-07-14', 'hannah.adams@liverpool.ac.uk', 'Business', 1, 92.3, 'In Progress', NULL, 29),
+(60, 'Ryan White', '2002-02-12', 'ryan.white@liverpool.ac.uk', 'Business', 2, 81.7, 'In Progress', NULL, 30),
 
 -- 🧠 Psychology Students (Advisors: 31-35)
-(19, 'Daniel Lee', '2000-09-14', 'daniel.lee@liverpool.ac.uk', 'Psychology', 4, 89.9, 'In Progress', NULL, 31),
-(20, 'Liam Carter', '2000-07-16', 'liam.carter@liverpool.ac.uk', 'Psychology', 4, 88.4, 'In Progress', NULL, 32),
-(21, 'Jacob Bennett', '2001-08-10', 'jacob.bennett@liverpool.ac.uk', 'Psychology', 4, 89.1, 'In Progress', NULL, 33),
+(61, 'Lucas King', '2003-06-19', 'lucas.king@liverpool.ac.uk', 'Psychology', 1, 90.5, 'In Progress', NULL, 31),
+(62, 'Sophia Carter', '2002-09-27', 'sophia.carter@liverpool.ac.uk', 'Psychology', 2, 79.3, 'In Progress', NULL, 32),
+(63, 'Nathan Scott', '2001-12-11', 'nathan.scott@liverpool.ac.uk', 'Psychology', 3, 85.7, 'In Progress', NULL, 33),
+(64, 'Ella Hall', '2000-07-30', 'ella.hall@liverpool.ac.uk', 'Psychology', 4, 78.9, 'In Progress', NULL, 34),
+(65, 'Michael Foster', '2003-02-14', 'michael.foster@liverpool.ac.uk', 'Psychology', 1, 92.6, 'In Progress', NULL, 35),
+(66, 'Rachel Young', '2002-04-19', 'rachel.young@liverpool.ac.uk', 'Psychology', 2, 81.2, 'In Progress', NULL, 31),
+(67, 'Zoe Brown', '2001-10-15', 'zoe.brown@liverpool.ac.uk', 'Psychology', 3, 83.1, 'In Progress', NULL, 32),
+(68, 'James Turner', '2000-08-25', 'james.turner@liverpool.ac.uk', 'Psychology', 4, 79.4, 'In Progress', NULL, 33),
+(69, 'Hannah Green', '2003-05-28', 'hannah.green@liverpool.ac.uk', 'Psychology', 1, 94.7, 'In Progress', NULL, 34),
+(70, 'David Mitchell', '2002-01-30', 'david.mitchell@liverpool.ac.uk', 'Psychology', 2, 77.8, 'In Progress', NULL, 35),
 
 -- ⚙️ Mechanical Engineering Students (Advisors: 36-40)
-(22, 'Laura White', '2003-06-22', 'laura.white@liverpool.ac.uk', 'Mechanical Engineering', 1, 79.3, 'In Progress', NULL, 36),
-(23, 'Charlotte Mitchell', '2003-09-05', 'charlotte.mitchell@liverpool.ac.uk', 'Mechanical Engineering', 1, 81.5, 'In Progress', NULL, 37),
-(24, 'Zoe Reed', '2003-06-27', 'zoe.reed@liverpool.ac.uk', 'Mechanical Engineering', 1, 83.7, 'In Progress', NULL, 38),
+(71, 'Michael Turner', '2002-08-14', 'michael.turner@liverpool.ac.uk', 'Mechanical Engineering', 2, 82.4, 'In Progress', NULL, 36),
+(72, 'Rachel Evans', '2001-12-05', 'rachel.evans@liverpool.ac.uk', 'Mechanical Engineering', 3, 78.9, 'In Progress', NULL, 37),
+(73, 'Sophia Adams', '2003-05-22', 'sophia.adams@liverpool.ac.uk', 'Mechanical Engineering', 1, 85.7, 'In Progress', NULL, 38),
+(74, 'Benjamin King', '2000-10-10', 'benjamin.king@liverpool.ac.uk', 'Mechanical Engineering', 4, 79.2, 'In Progress', NULL, 39),
+(75, 'Olivia Scott', '2002-07-17', 'olivia.scott@liverpool.ac.uk', 'Mechanical Engineering', 2, 81.3, 'In Progress', NULL, 40),
+(76, 'Daniel Foster', '2001-04-28', 'daniel.foster@liverpool.ac.uk', 'Mechanical Engineering', 3, 84.5, 'In Progress', NULL, 36),
+(77, 'Emma White', '2000-09-23', 'emma.white@liverpool.ac.uk', 'Mechanical Engineering', 4, 76.8, 'In Progress', NULL, 37),
+(78, 'Nathan Lewis', '2003-06-30', 'nathan.lewis@liverpool.ac.uk', 'Mechanical Engineering', 1, 88.6, 'In Progress', NULL, 38),
+(79, 'Zoe Mitchell', '2002-02-12', 'zoe.mitchell@liverpool.ac.uk', 'Mechanical Engineering', 2, 79.9, 'In Progress', NULL, 39),
+(80, 'Liam Carter', '2001-11-09', 'liam.carter@liverpool.ac.uk', 'Mechanical Engineering', 3, 83.1, 'In Progress', NULL, 40),
 
 -- ⚡ Electrical Engineering Students (Advisors: 41-45)
-(25, 'James Harris', '2001-03-11', 'james.harris@liverpool.ac.uk', 'Electrical Engineering', 3, 84.2, 'In Progress', NULL, 41),
-(26, 'Benjamin Roberts', '2001-11-30', 'benjamin.roberts@liverpool.ac.uk', 'Electrical Engineering', 3, 85.9, 'In Progress', NULL, 42),
-(27, 'Logan Foster', '2000-10-30', 'logan.foster@liverpool.ac.uk', 'Electrical Engineering', 3, 86.3, 'In Progress', NULL, 43);
+(81, 'Matthew Green', '2002-09-05', 'matthew.green@liverpool.ac.uk', 'Electrical Engineering', 2, 87.3, 'In Progress', NULL, 41),
+(82, 'Sophia Brown', '2001-05-19', 'sophia.brown@liverpool.ac.uk', 'Electrical Engineering', 3, 81.9, 'In Progress', NULL, 42),
+(83, 'Ryan Evans', '2003-07-30', 'ryan.evans@liverpool.ac.uk', 'Electrical Engineering', 1, 92.2, 'In Progress', NULL, 43),
+(84, 'Emily Scott', '2000-08-21', 'emily.scott@liverpool.ac.uk', 'Electrical Engineering', 4, 79.7, 'In Progress', NULL, 44),
+(85, 'Daniel Turner', '2002-03-12', 'daniel.turner@liverpool.ac.uk', 'Electrical Engineering', 2, 84.5, 'In Progress', NULL, 45),
+(86, 'Zoe White', '2001-06-28', 'zoe.white@liverpool.ac.uk', 'Electrical Engineering', 3, 88.1, 'In Progress', NULL, 41),
+(87, 'Benjamin Carter', '2000-10-09', 'benjamin.carter@liverpool.ac.uk', 'Electrical Engineering', 4, 77.9, 'In Progress', NULL, 42),
+(88, 'Hannah Lewis', '2003-02-14', 'hannah.lewis@liverpool.ac.uk', 'Electrical Engineering', 1, 91.7, 'In Progress', NULL, 43),
+(89, 'Lucas Mitchell', '2002-12-30', 'lucas.mitchell@liverpool.ac.uk', 'Electrical Engineering', 2, 79.4, 'In Progress', NULL, 44),
+(90, 'Lily King', '2001-11-23', 'lily.king@liverpool.ac.uk', 'Electrical Engineering', 3, 82.8, 'In Progress', NULL, 45);
+
+-- 🏛️ History Students (Advisors: 46-50)
+INSERT INTO students (student_id, name, dob, contact_info, program, year_of_study, current_grades, graduation_status, disciplinary_records, advisor_id) VALUES
+(91, 'Oliver Wright', '2002-04-15', 'oliver.wright@liverpool.ac.uk', 'History', 3, 79.1, 'In Progress', NULL, 46),
+(92, 'Emma Harris', '2001-07-22', 'emma.harris@liverpool.ac.uk', 'History', 4, 83.4, 'In Progress', NULL, 47),
+(93, 'Samuel Bennett', '2003-06-12', 'samuel.bennett@liverpool.ac.uk', 'History', 1, 90.2, 'In Progress', NULL, 48),
+(94, 'Charlotte Evans', '2000-10-05', 'charlotte.evans@liverpool.ac.uk', 'History', 4, 76.8, 'In Progress', NULL, 49),
+(95, 'James Carter', '2002-08-19', 'james.carter@liverpool.ac.uk', 'History', 3, 81.5, 'In Progress', NULL, 50),
+(96, 'Ava Robinson', '2001-09-28', 'ava.robinson@liverpool.ac.uk', 'History', 2, 78.9, 'In Progress', NULL, 46),
+(97, 'Daniel Foster', '2003-02-11', 'daniel.foster@liverpool.ac.uk', 'History', 1, 85.7, 'In Progress', NULL, 47),
+(98, 'Sophia Turner', '2000-12-25', 'sophia.turner@liverpool.ac.uk', 'History', 4, 74.3, 'In Progress', NULL, 48),
+(99, 'Henry Scott', '2002-05-30', 'henry.scott@liverpool.ac.uk', 'History', 3, 82.6, 'In Progress', NULL, 49),
+(100, 'Mia Thompson', '2001-11-18', 'mia.thompson@liverpool.ac.uk', 'History', 2, 80.1, 'In Progress', NULL, 50);
 
 -- Insert Programs
 INSERT INTO programs (name, degree_awarded, duration, course_requirements, enrolment_details)
