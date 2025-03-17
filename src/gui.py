@@ -42,11 +42,11 @@ class UniversityGUI(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("University Record Management System")
-        self.geometry("1100x600")
-        self.configure(bg="#F5F5F5")  # Light gray background
+        self.geometry("1200x700")
+        self.configure(bg="#000E4F")  # Navy Blue Background (University of Liverpool Color)
 
         # Set up main frames: menu & content
-        self.menu_frame = tk.Frame(self, bg="#004080", width=300)  # Dark blue sidebar
+        self.menu_frame = tk.Frame(self, bg="#000E4F", width=300)  # Navy Blue Sidebar
         self.menu_frame.pack(side=tk.LEFT, fill=tk.Y)
 
         self.content_frame = tk.Frame(self, bg="white")
@@ -55,7 +55,7 @@ class UniversityGUI(tk.Tk):
         # Title label
         title_label = tk.Label(
             self.content_frame, text="University Record Management System",
-            font=("Helvetica", 18, "bold"), fg="#004080", bg="white"
+            font=("Helvetica", 18, "bold"), fg="navy", bg="white"
         )
         title_label.pack(pady=10)
 
@@ -82,7 +82,7 @@ class UniversityGUI(tk.Tk):
         self.create_buttons()
 
     def create_buttons(self):
-        """Create and place all buttons in the sidebar menu."""
+        """Create and place all buttons in the sidebar menu with Yellow Separators."""
         button_data = [
             ("🏫 Students in Major", self.show_students_in_major),
             ("📜 Courses by Dept", self.show_courses_by_dept),
@@ -104,11 +104,16 @@ class UniversityGUI(tk.Tk):
                 text=text,
                 command=command,  # ✅ Ensure the correct method is being called
                 font=("Helvetica", 12, "bold"),
-                bg="#3498db",  # Blue color
+                bg="#000E4F",  # Navy Blue Button Background
                 fg="white",
-                padx=10, pady=5
+                padx=10, pady=5,
+                borderwidth=0
             )
             btn.pack(pady=5, fill=tk.X)
+
+            # ✅ Add Yellow Divider Line Between Buttons
+            separator = tk.Frame(self.menu_frame, height=2, bg="yellow")
+            separator.pack(fill=tk.X, padx=10, pady=(0, 5))
 
     def clear_tree(self):
         """Clears the tree view before inserting new data."""
