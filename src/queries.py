@@ -116,15 +116,15 @@ def get_staff_in_department(department_name):
 
 def get_all_departments():
     """Retrieve a list of all departments."""
-    query = "SELECT department_name FROM departments;"
+    query = "SELECT TRIM(department_name) FROM departments;"  # ✅ Ensure full names are retrieved
     conn = get_db_connection()
     with conn.cursor() as cursor:
         cursor.execute(query)
         result = cursor.fetchall()
     conn.close()
     
-    # Ensure department names are returned in correct format
-    return [row[0] for row in result]  # This removes spaces between characters
+    return [row[0] for row in result]  # ✅ Ensures proper formatting
+
 
 def get_courses_by_department(department_name):
     """Retrieve all courses for a specific department."""
