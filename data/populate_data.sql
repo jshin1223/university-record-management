@@ -281,10 +281,9 @@ VALUES
 (87, 'Benjamin Carter', '2000-10-09', 'benjamin.carter@liverpool.ac.uk', 'Electrical Engineering', 4, 77.9, 'In Progress', NULL, 42),
 (88, 'Hannah Lewis', '2003-02-14', 'hannah.lewis@liverpool.ac.uk', 'Electrical Engineering', 1, 91.7, 'In Progress', NULL, 43),
 (89, 'Lucas Mitchell', '2002-12-30', 'lucas.mitchell@liverpool.ac.uk', 'Electrical Engineering', 2, 79.4, 'In Progress', NULL, 44),
-(90, 'Lily King', '2001-11-23', 'lily.king@liverpool.ac.uk', 'Electrical Engineering', 3, 82.8, 'In Progress', NULL, 45);
+(90, 'Lily King', '2001-11-23', 'lily.king@liverpool.ac.uk', 'Electrical Engineering', 3, 82.8, 'In Progress', NULL, 45),
 
 -- 🏛️ History Students (Advisors: 46-50)
-INSERT INTO students (student_id, name, dob, contact_info, program, year_of_study, current_grades, graduation_status, disciplinary_records, advisor_id) VALUES
 (91, 'Oliver Wright', '2002-04-15', 'oliver.wright@liverpool.ac.uk', 'History', 3, 79.1, 'In Progress', NULL, 46),
 (92, 'Emma Harris', '2001-07-22', 'emma.harris@liverpool.ac.uk', 'History', 4, 83.4, 'In Progress', NULL, 47),
 (93, 'Samuel Bennett', '2003-06-12', 'samuel.bennett@liverpool.ac.uk', 'History', 1, 90.2, 'In Progress', NULL, 48),
@@ -294,7 +293,56 @@ INSERT INTO students (student_id, name, dob, contact_info, program, year_of_stud
 (97, 'Daniel Foster', '2003-02-11', 'daniel.foster@liverpool.ac.uk', 'History', 1, 85.7, 'In Progress', NULL, 47),
 (98, 'Sophia Turner', '2000-12-25', 'sophia.turner@liverpool.ac.uk', 'History', 4, 74.3, 'In Progress', NULL, 48),
 (99, 'Henry Scott', '2002-05-30', 'henry.scott@liverpool.ac.uk', 'History', 3, 82.6, 'In Progress', NULL, 49),
-(100, 'Mia Thompson', '2001-11-18', 'mia.thompson@liverpool.ac.uk', 'History', 2, 80.1, 'In Progress', NULL, 50);
+(100, 'Mia Thompson', '2001-11-18', 'mia.thompson@liverpool.ac.uk', 'History', 2, 80.1, 'In Progress', NULL, 50),
+
+-- 🎓 MSc Artificial Intelligence Students (Advisors: 1-5)
+(101, 'Alice Cooper', '1999-07-10', 'alice.cooper@liverpool.ac.uk', 'Artificial Intelligence', 2, 85.2, 'In Progress', NULL, 1),
+(102, 'Brian Hughes', '1998-09-23', 'brian.hughes@liverpool.ac.uk', 'Artificial Intelligence', 1, 81.7, 'In Progress', NULL, 2),
+(103, 'Emily Foster', '2000-01-05', 'emily.foster@liverpool.ac.uk', 'Artificial Intelligence', 2, 87.4, 'In Progress', NULL, 3),
+(104, 'Jack Stevenson', '1999-11-11', 'jack.stevenson@liverpool.ac.uk', 'Artificial Intelligence', 1, 83.8, 'In Progress', NULL, 4),
+(105, 'Sophia Carter', '1998-12-20', 'sophia.carter@liverpool.ac.uk', 'Artificial Intelligence', 2, 88.1, 'In Progress', NULL, 5),
+
+-- 🔒 MSc Cybersecurity Students (Advisors: 1-5)
+(106, 'Nathan Perry', '1999-03-28', 'nathan.perry@liverpool.ac.uk', 'Cybersecurity', 1, 82.3, 'In Progress', NULL, 2),
+(107, 'Lily Adams', '1998-05-19', 'lily.adams@liverpool.ac.uk', 'Cybersecurity', 2, 86.9, 'In Progress', NULL, 3),
+(108, 'Owen Williams', '1999-06-30', 'owen.williams@liverpool.ac.uk', 'Cybersecurity', 1, 78.7, 'In Progress', NULL, 4),
+(109, 'Chloe Martin', '2000-02-22', 'chloe.martin@liverpool.ac.uk', 'Cybersecurity', 2, 84.5, 'In Progress', NULL, 5),
+(110, 'James Russell', '1999-09-14', 'james.russell@liverpool.ac.uk', 'Cybersecurity', 1, 79.9, 'In Progress', NULL, 1),
+
+-- 📊 MSc Data Science Students (Advisors: 1-5)
+(111, 'Charlotte Bennett', '1998-08-09', 'charlotte.bennett@liverpool.ac.uk', 'Data Science', 2, 89.2, 'In Progress', NULL, 3),
+(112, 'Daniel Wright', '2000-10-10', 'daniel.wright@liverpool.ac.uk', 'Data Science', 1, 82.6, 'In Progress', NULL, 4),
+(113, 'Emma Clark', '1999-07-18', 'emma.clark@liverpool.ac.uk', 'Data Science', 2, 90.4, 'In Progress', NULL, 5),
+(114, 'Oliver Mitchell', '1998-04-30', 'oliver.mitchell@liverpool.ac.uk', 'Data Science', 1, 85.1, 'In Progress', NULL, 1),
+(115, 'Sophia King', '1999-11-26', 'sophia.king@liverpool.ac.uk', 'Data Science', 2, 88.7, 'In Progress', NULL, 2),
+
+-- 💰 MSc Finance and Accounting Students (Advisors: 26-30)
+(116, 'Jacob Hall', '2000-06-15', 'jacob.hall@liverpool.ac.uk', 'Finance and Accounting', 1, 81.3, 'In Progress', NULL, 26),
+(117, 'Hannah Evans', '1998-10-21', 'hannah.evans@liverpool.ac.uk', 'Finance and Accounting', 2, 85.8, 'In Progress', NULL, 27),
+(118, 'Mason Lewis', '1999-12-02', 'mason.lewis@liverpool.ac.uk', 'Finance and Accounting', 1, 80.5, 'In Progress', NULL, 28),
+(119, 'Ava Turner', '1999-05-14', 'ava.turner@liverpool.ac.uk', 'Finance and Accounting', 2, 87.9, 'In Progress', NULL, 29),
+(120, 'William Scott', '2000-01-30', 'william.scott@liverpool.ac.uk', 'Finance and Accounting', 1, 84.3, 'In Progress', NULL, 30),
+
+-- 📢 MSc Marketing Management Students (Advisors: 26-30)
+(121, 'Lucas White', '1998-11-25', 'lucas.white@liverpool.ac.uk', 'Marketing Management', 1, 79.8, 'In Progress', NULL, 27),
+(122, 'Grace Robinson', '2000-03-07', 'grace.robinson@liverpool.ac.uk', 'Marketing Management', 2, 82.5, 'In Progress', NULL, 28),
+(123, 'Ethan Foster', '1999-12-11', 'ethan.foster@liverpool.ac.uk', 'Marketing Management', 1, 78.4, 'In Progress', NULL, 29),
+(124, 'Mia Adams', '1998-09-22', 'mia.adams@liverpool.ac.uk', 'Marketing Management', 2, 84.9, 'In Progress', NULL, 30),
+(125, 'Noah Carter', '2000-07-08', 'noah.carter@liverpool.ac.uk', 'Marketing Management', 1, 80.7, 'In Progress', NULL, 26),
+
+-- 🌍 MSc Environmental Science Students (Advisors: 16-20)
+(126, 'Ella Hughes', '1999-02-16', 'ella.hughes@liverpool.ac.uk', 'Environmental Science', 2, 88.3, 'In Progress', NULL, 16),
+(127, 'Nathan Young', '2000-05-27', 'nathan.young@liverpool.ac.uk', 'Environmental Science', 1, 81.6, 'In Progress', NULL, 17),
+(128, 'Lily Green', '1998-08-14', 'lily.green@liverpool.ac.uk', 'Environmental Science', 2, 90.1, 'In Progress', NULL, 18),
+(129, 'Jack Bennett', '1999-04-29', 'jack.bennett@liverpool.ac.uk', 'Environmental Science', 1, 83.2, 'In Progress', NULL, 19),
+(130, 'Sophia Hall', '1998-10-12', 'sophia.hall@liverpool.ac.uk', 'Environmental Science', 2, 85.9, 'In Progress', NULL, 20),
+
+-- 🏥 MSc Medical Research Students (Advisors: 16-20)
+(131, 'Benjamin Turner', '1999-06-21', 'benjamin.turner@liverpool.ac.uk', 'Medical Research', 1, 84.7, 'In Progress', NULL, 16),
+(132, 'Charlotte Wilson', '2000-11-19', 'charlotte.wilson@liverpool.ac.uk', 'Medical Research', 2, 88.6, 'In Progress', NULL, 17),
+(133, 'Ethan Harris', '1998-07-15', 'ethan.harris@liverpool.ac.uk', 'Medical Research', 1, 79.4, 'In Progress', NULL, 18),
+(134, 'Mia Lewis', '1999-03-30', 'mia.lewis@liverpool.ac.uk', 'Medical Research', 2, 86.2, 'In Progress', NULL, 19),
+(135, 'Lucas Martin', '1998-12-25', 'lucas.martin@liverpool.ac.uk', 'Medical Research', 1, 82.7, 'In Progress', NULL, 20);
 
 -- Insert Programs
 INSERT INTO programs (name, degree_awarded, duration, course_requirements, enrolment_details)
