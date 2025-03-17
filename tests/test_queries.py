@@ -1,6 +1,8 @@
 import unittest
 import sys
 import os
+import time
+import threading
 
 # Add src/ to the Python path dynamically
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
@@ -34,52 +36,63 @@ class TestDatabaseQueries(unittest.TestCase):
         self.conn.close()
 
     def test_get_students_in_major(self):
+        """Test retrieving students in a specific major."""
         result = get_students_in_major("Computer Science")
         self.assertIsInstance(result, (list, tuple))
 
     def test_get_professors_in_department(self):
+        """Test retrieving professors in a given department."""
         result = get_professors_in_department("Engineering")
         self.assertIsInstance(result, (list, tuple))
 
     def test_get_students_in_course(self):
+        """Test retrieving students enrolled in a particular course."""
         result = get_students_in_course("Introduction to AI")
         self.assertIsInstance(result, (list, tuple))
 
     def test_get_courses_taught_by_lecturers(self):
+        """Test retrieving courses taught by lecturers in a department."""
         result = get_courses_taught_by_lecturers("Computer Science")
         self.assertIsInstance(result, (list, tuple))
 
     def test_get_top_students(self):
+        """Test retrieving the top-performing students."""
         result = get_top_students()
         self.assertIsInstance(result, (list, tuple))
 
     def test_get_staff_in_department(self):
+        """Test retrieving non-academic staff in a department."""
         result = get_staff_in_department("Administration")
         self.assertIsInstance(result, (list, tuple))
 
     def test_get_all_departments(self):
+        """Test retrieving all university departments."""
         result = get_all_departments()
         self.assertIsInstance(result, (list, tuple))
 
     def test_get_courses_by_department(self):
+        """Test retrieving courses offered by a specific department."""
         result = get_courses_by_department("Mathematics")
         self.assertIsInstance(result, (list, tuple))
 
     def test_get_research_projects_by_department(self):
+        """Test retrieving research projects under a department."""
         result = get_research_projects_by_department("Physics")
         self.assertIsInstance(result, (list, tuple))
 
     def test_get_bachelors_degrees(self):
+        """Test retrieving all Bachelor's degree programs."""
         result = get_bachelors_degrees()
         self.assertIsInstance(result, (list, tuple))
 
     def test_get_masters_degrees(self):
+        """Test retrieving all Master's degree programs."""
         result = get_masters_degrees()
         self.assertIsInstance(result, (list, tuple))
 
     # New Advanced Tests
     def test_insert_student(self):
-        """Test inserting a new student."""
+        """Test inserting a new student into the database."""
         self.cursor.execute("""
             INSERT INTO students (name, dob, contact_info, program, year_of_study, current_grades, graduation_status)
             VALUES ('Test Student', '2000-01-01', 'test@student.com', 'Computer Science', 2, 75.0, 'In Progress');
@@ -90,7 +103,7 @@ class TestDatabaseQueries(unittest.TestCase):
         self.assertIsNotNone(result)
 
     def test_update_student_grade(self):
-        """Test updating a student's grade."""
+        """Test updating a student's grade in the database."""
         self.cursor.execute("""
             INSERT INTO students (name, dob, contact_info, program, year_of_study, current_grades, graduation_status)
             VALUES ('Test Student', '2000-01-01', 'test@student.com', 'Computer Science', 2, 75.0, 'In Progress')
@@ -106,7 +119,7 @@ class TestDatabaseQueries(unittest.TestCase):
         self.assertEqual(result[0], 90.0)
 
     def test_delete_student(self):
-        """Test deleting a student."""
+        """Test deleting a student from the database."""
         self.cursor.execute("DELETE FROM students WHERE name = 'Test Student'")
         self.conn.commit()
         self.cursor.execute("SELECT name FROM students WHERE name = 'Test Student'")
@@ -119,4 +132,4 @@ class TestDatabaseQueries(unittest.TestCase):
         self.assertIn(result, ([], ()))  # Accepts both empty list and empty tuple
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main() 
