@@ -49,7 +49,19 @@ Ensure you have the following installed on your system:
 
 <a id="execution-and-usage"></a>
 ## 🚀 Execution and Usage
+### Change Root Password Before Running
 
+Before running the application, ensure you update the MySQL root password in config.py. Open config.py and modify the following line to match your MySQL credentials:
+```sh
+DB_CONFIG = {
+    'host': 'localhost',
+    'user': 'root',  # Change this if your MySQL user is different
+    'password': 'your_secure_password',  # Change this from the default password
+    'database': 'university_db',
+    'port': 3306
+}
+```
+Save the file before proceeding to the next step.
 ### Set Up and Run the Application
 To set up the database and launch the system, run:
 ```sh
