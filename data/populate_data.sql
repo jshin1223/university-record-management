@@ -371,7 +371,7 @@ SELECT s.student_id, c.course_code
 FROM students s
 JOIN courses c ON s.program = c.department
 ORDER BY RAND()
-LIMIT 100;
+LIMIT 400;
 
 -- Insert lecturer-course assignments ensuring lecturers only teach their department's courses
 INSERT INTO lecturer_courses (lecturer_id, course_id)
@@ -379,7 +379,7 @@ SELECT l.lecturer_id, c.course_code
 FROM lecturers l
 JOIN courses c ON l.department = c.department
 ORDER BY RAND()
-LIMIT 60;
+LIMIT 150;
 
 -- Insert Research Projects dynamically based on lecturers and students
 INSERT INTO research_projects (project_title, principal_investigator, funding_sources, team_members, publications, outcomes)
