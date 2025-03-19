@@ -365,19 +365,21 @@ VALUES
 ('Environmental Science', 'MSc', 2, 'Climate Change, Renewable Energy', 'Full-time'),
 ('Medical Research', 'MSc', 2, 'Clinical Studies, Biomedical Research', 'Full-time');
 
--- Insert enrollments ensuring students only take courses from their major
+-- Insert enrollments ensuring students only take courses from their major (Max 4 per student)
 INSERT INTO enrollments (student_id, course_id)
 SELECT s.student_id, c.course_code
 FROM students s
 JOIN courses c ON s.program = c.department
+WHERE (SELECT COUNT(*) FROM enrollments e WHERE e.student_id = s.student_id) < 4
 ORDER BY RAND()
 LIMIT 400;
 
--- Insert lecturer-course assignments ensuring lecturers only teach their department's courses
+-- Insert lecturer-course assignments ensuring lecturers teach max 3 courses
 INSERT INTO lecturer_courses (lecturer_id, course_id)
 SELECT l.lecturer_id, c.course_code
 FROM lecturers l
 JOIN courses c ON l.department = c.department
+WHERE (SELECT COUNT(*) FROM lecturer_courses lc WHERE lc.lecturer_id = l.lecturer_id) < 3
 ORDER BY RAND()
 LIMIT 150;
 
